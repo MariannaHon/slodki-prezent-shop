@@ -1,15 +1,44 @@
+import Header from "./components/Header/Header";
+import "./sass/main.scss";
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 
+import { Open_Sans, Inter, Poppins, Roboto, Merriweather, Playfair_Display } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const openSans = Open_Sans({
   subsets: ["latin"],
+  weight: ["300","400","500","600","700","800"],
+  style: ["normal","italic"],
+  display: "swap",
+});
+const inter = Inter({ 
+  subsets: ["latin"], 
+  weight: ["400", "500", "600", "700"], 
+  display: "swap"
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  weight: ["400","500","600","700"], 
+  display: "swap" 
+});
+
+const roboto = Roboto({ 
+  subsets: ["latin"], 
+  weight: ["400","500","700"], 
+  display: "swap" 
+});
+
+const merriweather = Merriweather({ 
+  subsets: ["latin"], 
+  weight: ["400","700"], 
+  display: "swap"
+});
+
+const playfair = Playfair_Display({ 
+  subsets: ["latin"], 
+  weight: ["400","700"], 
+  display: "swap" 
 });
 
 export const metadata: Metadata = {
@@ -25,8 +54,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.className} ${inter.className} ${poppins.className} ${roboto.className} ${merriweather.className} ${playfair.className} container antialiased`}
       >
+        <Header />
         {children}
       </body>
     </html>

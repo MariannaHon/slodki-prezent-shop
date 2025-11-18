@@ -57,3 +57,68 @@ details {
 html {
     scroll-behavior: smooth;
 }
+
+:root {
+    --primary-500: #734f41;
+    --primary-50: #f6f1ef;
+    --primary-950: #100b09;
+    --primary-100: #ede2de;
+    --primary-200: #dac6be;
+    --primary-300: #c8a99d;
+    --primary-400: #b58d7d;
+    --primary-600: #825a4a;
+    --primary-700: #624337;
+    --primary-800: #412d25;
+    --primary-900: #211612;
+    --secondary-500: #fbd48c;
+    --secondary-50: #fef6e6;
+    --secondary-950: #191001;
+    --secondary-100: #fdedce;
+    --secondary-200: #fcda9c;
+    --secondary-300: #fac86b;
+    --secondary-400: #f8b63a;
+    --secondary-600: #c58307;
+    --secondary-700: #946205;
+    --secondary-800: #634103;
+    --secondary-900: #312102;
+    --tertiary-500: #b4af8f;
+    --tertiary-50: #f5f4f0;
+    --tertiary-950: #0f0f0a;
+    --tertiary-100: #ebe9e0;
+    --tertiary-200: #d6d3c2;
+    --tertiary-300: #c2bea3;
+    --tertiary-400: #ada885;
+    --tertiary-600: #7a7552;
+    --tertiary-700: #5c583d;
+    --tertiary-800: #3d3a29;
+    --tertiary-900: #1f1d14;
+    --neutral-500: #7c7c7c;
+    --neutral-50: #f2f2f2;
+    --neutral-950: #0d0d0d;
+    --neutral-100: #e6e6e6;
+    --neutral-200: #ccc;
+    --neutral-300: #b3b3b3;
+    --neutral-400: #999;
+    --neutral-600: #666;
+    --neutral-700: #4d4d4d;
+    --neutral-800: #333;
+    --neutral-900: #1a1a1a;
+}
+
+:root {
+    --font-family: "Open Sans", sans-serif;
+    --second-family: "Inter", sans-serif;
+    --third-family: "Poppins", sans-serif;
+    --font3: "Roboto", sans-serif;
+    --font4: "Merriweather", sans-serif;
+    --font5: "Basier Circle", sans-serif;
+    --font6: "Playfair Display", sans-serif;
+}
+
+.container {
+    max-width: 144rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
