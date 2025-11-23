@@ -1,0 +1,117 @@
+
+@use '../../sass/abstracts/variables' as *;
+
+.footer {
+    padding: 4rem 0;
+    width: 100%;
+    background: $primary-900;
+    color: $primary-100;
+
+    &-top {
+        display: flex;
+        border-bottom: 1px solid $primary-400;
+        padding: 0 0 3.2rem;
+        width: 120rem;
+
+        &-about {
+            display: flex;
+            flex-direction: column;
+            width: 28.8rem;
+            margin-right: auto;
+
+            &-text {
+                margin-bottom: 2.4rem;
+            }
+
+            &-nip {
+                gap: 0.4rem;
+                margin-bottom: 2.4rem;
+            }
+
+            &-social {
+                display: flex;
+                gap: 1.6rem;
+
+                &-link {
+                    display: flex;
+                    width: 4rem;
+                    height: 4rem;
+                    padding: 1rem;
+                    border-radius: 10rem;
+                    background-color: $primary-400;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+                
+                &-icon {
+                    width: 2rem;
+                    height: 2rem;
+                    fill: $primary-700;
+                };
+        }
+
+        &-links {
+            display: flex;
+            gap: 12rem;
+            padding: 2.4rem 0;
+            width: 80rem;
+
+            &-item {
+                display: flex;
+                flex-direction: column;
+                gap: 2.4rem;
+
+                &-title {
+                    font-weight: 700;
+                    font-size: 1.8rem;
+                    color: #fff;
+                }
+
+                &-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.2rem;
+
+                    &-item {
+                        display: flex;
+                        width: 100%;
+                        flex-shrink: 0;
+                        align-items: start;
+                    }
+                }
+            }
+
+            &-icon {
+                width: 2.2rem;
+                height: 2.2rem;
+                fill: $secondary-400;
+                stroke: $secondary-400;
+                margin-right: 2.2rem;
+            }
+        }
+    }
+
+    &-logo {
+        fill: $primary-50;
+        margin-bottom: 2.4rem;
+    }
+
+    &-bottom {
+        display: flex;
+        font-size: 1.4rem;
+        color: $primary-300;
+        margin-top: 3.2rem;
+        width: 120rem;
+
+        &-text {
+            display: flex;
+            margin-right: auto;
+        }
+
+        &-links {
+            display: flex;
+            gap: 2.3rem;
+        }
+    }
+}

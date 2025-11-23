@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import "./sass/main.scss";
 
 import type { Metadata } from "next";
@@ -54,10 +55,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${openSans.className} ${inter.className} ${poppins.className} ${roboto.className} ${merriweather.className} ${playfair.className} container antialiased`}
+        className={`${openSans.className} ${inter.className} ${poppins.className} ${roboto.className} ${merriweather.className} ${playfair.className} antialiased`}
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

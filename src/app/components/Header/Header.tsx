@@ -4,27 +4,30 @@ import css from './Header.module.scss';
 const Header = () => {
   return (
     <header className={css.header}>
-        <svg className={css['header-logo']}
+      <div className='container'>
+        <div className={css['header-content']}>
+          <Link href="/"><svg className={css['header-logo']}
             width="213"
             height="48"
         >
             <use href="/icons.svg#icon-logo"></use>
-          </svg>
+          </svg></Link>
+          
           <nav className={css['header-nav']}>
               <ul className={css['header-nav-list']}>
-                  <li className={css['header-nav-list-item']}>
+                  <li>
                     <Link className={css['header-nav-list-link']} href="/">Boksy Prezentowe</Link>
                   </li>
-                  <li className={css['header-nav-list-item']}>
+                  <li>
                     <Link className={css['header-nav-list-link']} href="/">O Nas</Link>
                   </li>
-                  <li className={css['header-nav-list-item']}>
+                  <li>
                     <Link className={css['header-nav-list-link']} href="/">Dostawa i Płatność</Link>
                   </li>
-                  <li className={css['header-nav-list-item']}>
+                  <li>
                     <Link className={css['header-nav-list-link']} href="/">Kontakt</Link>
                   </li>
-                  <li className={css['header-nav-list-item']}>
+                  <li>
                     <Link className={css['header-nav-list-link']} href="/">Blog</Link>
                   </li>
               </ul>
@@ -50,6 +53,8 @@ const Header = () => {
                 </li>
               </ul>
           </nav>
+        </div>
+      </div>
     </header>
   )
 }

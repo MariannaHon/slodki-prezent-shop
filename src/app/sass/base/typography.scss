@@ -1,12 +1,40 @@
+@use '../abstracts/variables' as *;
+
+
 body {
     font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $primary-700;
+    line-height: 150%;
+}
+
+:root {
     --second-family: "Inter", sans-serif;
     --third-family: "Poppins", sans-serif;
     --font3: "Roboto", sans-serif;
     --font4: "Merriweather", sans-serif;
     --font5: "Basier Circle", sans-serif;
     --font6: "Playfair Display", sans-serif;
-    font-weight: 400;
-    font-size: 1.6rem;
-    color: #624337;
+}
+
+.main-title {
+    font-family: var(--font4);
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 120%;
+    color: $primary-900;
+}
+
+.sub-title {
+    font-size: 20px;
+    color: $primary-700;
+}
+
+.mb-24 {
+    margin-bottom: 2.4rem;
+}
+
+.mb-40 {
+    margin-bottom: 4rem;
 }
