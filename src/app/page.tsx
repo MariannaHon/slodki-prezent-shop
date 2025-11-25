@@ -1,6 +1,10 @@
 import Image from "next/image";
 import css from "./page.module.scss";
 import Holidays from "./components/Holidays/Holidays";
+import Recommendations from "./components/Recommendations/Recommendations";
+import Clients from "./components/Clients/Clients";
+import ONas from "./components/ONas/ONas";
+import Popular from "./components/Popular/Popular";
 
 export default function Home() {
   return (
@@ -25,6 +29,10 @@ export default function Home() {
 
         </div>
         <Holidays />
+        <Recommendations />
+        <Clients />
+        <ONas />
+        <Popular />
       </div>
     </main>
   );

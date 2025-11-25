@@ -27,8 +27,24 @@ body {
 }
 
 .sub-title {
-    font-size: 20px;
-    color: $primary-700;
+    font-family: "Open Sans", sans-serif;
+    font-size: 2rem;
+}
+
+.section-title {
+    font-family: var(--font4);
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 120%;
+    color: $primary-900;
+}
+
+.card-title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 130%;
+    color: $primary-900;
 }
 
 .mb-24 {

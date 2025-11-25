@@ -1,0 +1,14 @@
+@use '../../sass/abstracts/variables' as *;
+
+.clients {
+    padding: 8rem 0;
+    width: 120rem;
+
+    &-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10rem;
+        margin-top: 4rem;
+    }
+}
