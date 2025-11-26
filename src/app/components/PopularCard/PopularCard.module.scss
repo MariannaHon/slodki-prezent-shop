@@ -1,0 +1,53 @@
+@use '../../sass/abstracts/variables' as *;
+
+.card {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 1.2rem;
+    padding: 0 0 2.4rem;
+    width: 28.2rem;
+    height: 48.9rem;
+    box-shadow: 0 .4rem .6rem 0 rgba(33, 22, 18, 0.1);
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 2.4rem;
+
+        &-text {
+            font-size: 1.4rem;
+            line-height: 150%;
+            margin-bottom: 1.6rem;
+        }
+
+        &-buy {
+            display: flex;
+
+            &-price {
+                font-weight: 700;
+                font-size: 2.4rem;
+                line-height: 133%;
+                color: $primary-900;
+                margin-right: auto;
+            
+                &-netto {
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                }
+            }
+
+            &-btn {
+                width: 3.8rem;
+                height: 3.6rem;
+                border: 1px solid $primary-500;
+                border-radius: 0.8rem;
+                background-color: transparent;
+
+                &-icon {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    fill: $primary-500;
+                }
+            }
+        }
+    }
+}
