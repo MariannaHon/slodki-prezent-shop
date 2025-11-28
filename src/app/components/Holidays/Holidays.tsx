@@ -6,7 +6,10 @@ import css from './Holidays.module.scss';
 const Holidays = () => {
   return (
     <div>
+      <div className='container'>
         <Holiday/>
+      </div>
+        
     </div>
   )
 }

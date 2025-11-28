@@ -5,8 +5,8 @@ import css from "./Clients.module.scss";
 
 const Clients = () => {
   return (
-    <div className={css.clients}>
-        <div className="container">
+    <div className="container">
+        <div className={css.clients}>
             <h2 className="section-title">Prezenty, które doceniły topowe firmy</h2>
             <ul className={css['clients-list']}>
                 <li>

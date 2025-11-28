@@ -11,7 +11,7 @@ import Skontaktuj from "./components/Skontaktuj/Skontaktuj";
 export default function Home() {
   return (
     <main>
-      <div className="container">
+      <div>
         <div className={css.hero}>
           <div className={css["hero-left"]}>
             <h1 className='main-title mb-24'>Ekskluzywne Boksy Prezentowe dla Firm</h1>

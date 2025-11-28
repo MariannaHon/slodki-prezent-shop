@@ -1,0 +1,58 @@
+@use '../../sass/abstracts/variables' as *;
+
+
+.sidebar {
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-right: 3rem;
+    width: 28rem;
+
+    border: solid 1px $primary-100;
+    border-radius: 1.2rem;
+    padding: 4rem 1rem; 
+
+    &-title {
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 130%;
+        color: $primary-900;
+        margin-bottom: 4rem;
+    }
+
+    &-field {
+        border: none;
+        border-bottom: solid 1px $primary-100;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+
+        &:last-child {
+            border: none;
+            margin-bottom: 0;
+        }
+
+        &-legend {
+            font-weight: 700;
+            color: $primary-900;
+        }
+
+        &-text {
+            line-height: 1.5em;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            margin-left: 0.8rem;
+        }
+    }
+
+}
+
+        // width: 18px;
+        // height: 18px;
+        // min-width: 18px;
+        // min-height: 18px;
+        // margin-right: 8px;
+        // border-style: solid;
+        // border-width: 1px 1px 1px 1px;
+        // border-color: #211612;
+        // border-radius: 2px 2px 2px 2px;
+        // overflow: hidden;

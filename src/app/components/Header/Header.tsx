@@ -16,10 +16,10 @@ const Header = () => {
           <nav className={css['header-nav']}>
               <ul className={css['header-nav-list']}>
                   <li>
-                    <Link className={css['header-nav-list-link']} href="/">Boksy Prezentowe</Link>
+                    <Link className={css['header-nav-list-link']} href="/boksy">Boksy Prezentowe</Link>
                   </li>
                   <li>
-                    <Link className={css['header-nav-list-link']} href="/">O Nas</Link>
+                    <Link className={css['header-nav-list-link']} href="/about">O Nas</Link>
                   </li>
                   <li>
                     <Link className={css['header-nav-list-link']} href="/">Dostawa i Płatność</Link>

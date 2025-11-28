@@ -1,0 +1,51 @@
+
+@use '../sass/abstracts/variables' as *;
+
+.boksy {
+    padding: 8rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 120rem;
+    font-family: "Open Sans", sans-serif;
+
+    &-top {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 4rem;
+
+        &-paragraph {
+            font-size: 2rem;
+            color: $primary-700;
+            width: 63rem;
+        }
+    }
+
+    &-layout {
+        display: flex;
+
+        &-filters {
+            margin-right: 2.4rem;
+        }
+    }
+    
+    &-bottom {
+        display: flex;
+        gap: 2.4rem;
+        padding: 4rem 0;
+
+        &-title {
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 150%;
+            color: #2d2a2a;
+            margin-bottom: 1.6rem;
+        }
+
+        &-tekst {
+            line-height: 150%;
+            color: #4b5563;
+        }
+    }
+}

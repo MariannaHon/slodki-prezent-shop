@@ -39,13 +39,6 @@ const Footer = () => {
                         <li>
                             <Link className={css['footer-top-about-social-link']} href="/">
                                 <svg className={css['footer-top-about-icon']}>
-                                        <use href="/icons.svg#icon-google"></use>
-                                </svg>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={css['footer-top-about-social-link']} href="/">
-                                <svg className={css['footer-top-about-icon']}>
                                         <use href="/icons.svg#icon-tiktok"></use>
                                 </svg>
                             </Link>

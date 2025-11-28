@@ -1,6 +1,7 @@
 @use './variables' as *;
 
 @mixin btnBrown($width) {
+    font-family: "Open Sans", sans-serif;
     font-weight: 600;
     text-align: center;
     color: #fff;
@@ -14,6 +15,7 @@
 }
 
 @mixin btnWhite($width) {
+    font-family: "Open Sans", sans-serif;
     font-weight: 600;
     text-align: center;
     color: $primary-500;

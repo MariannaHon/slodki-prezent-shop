@@ -1,0 +1,14 @@
+@use '../../sass/abstracts/variables' as *;
+
+.blog {
+    padding: 8rem 0;
+    width: 100%;
+    background-color: $secondary-100;
+
+    &-text {
+        margin: 1.4rem 0 4rem;
+        width: 63.3rem;
+        display: flex;
+        text-align: center;
+    }
+}

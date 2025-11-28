@@ -5,8 +5,8 @@ import PopularCard from "../PopularCard/PopularCard";
 
 const Popular = () => {
   return (
-    <div className={css.popular}>
-          <div className="continer">
+    <div className="container">
+          <div className={css.popular}>
               <h1 className="section-title mb-40">Najpopularniejsze zestawy</h1>
               <PopularCard />
         </div>

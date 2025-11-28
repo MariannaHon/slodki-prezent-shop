@@ -1,0 +1,113 @@
+@use '../sass/abstracts/variables' as *;
+
+.about {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    margin: 0 auto;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+
+    &-paragraph {
+            font-size: 2rem;
+            line-height: 150%;
+            text-align: center;
+            width: 84.5rem;
+            margin-bottom: 4rem;
+    }
+
+    &-top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8rem;
+
+        &-img {
+            width: 58.8rem;
+            height: 38.4rem;
+        }
+
+        &-right {
+            width: 58.4rem;
+            margin-left: 3.6rem;
+
+            &-slogan {
+                font-weight: 700;
+                font-size: 1.8rem;
+                line-height: 150%;
+                margin-bottom: 0.8rem;
+            }
+
+            &-bold {
+                font-weight: 700;
+            }
+        }
+    }
+
+    &-presents {
+        padding: 8rem 12rem;
+        width: 100%;
+        background-color: $secondary-100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-paragraph {
+            width: 60.6rem;
+            display: flex;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 5.6rem;
+        }
+
+        &-list {
+            display: flex;
+            gap: 2.4rem;
+            margin-bottom: 5.6rem;
+
+            &-item {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        &-sentence {
+            font-size: 2rem;
+            color: $primary-900;
+
+            &-link {
+                font-family: var(--font4);
+                font-weight: 700;
+                line-height: 120%;
+                text-decoration: underline;
+                text-decoration-skip-ink: none;
+            }
+        }
+    }
+
+    &-zalety {
+        display: flex;
+        padding: 8rem 0;
+        width: 120rem;
+        height: 35.2rem;
+
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            margin-top: auto;
+
+            &-title {
+                font-weight: 700;
+                font-size: 1.8rem;
+                line-height: 150%;
+                color: $primary-900;
+                margin-bottom: 0.8rem;
+            }
+        }
+    }
+}
