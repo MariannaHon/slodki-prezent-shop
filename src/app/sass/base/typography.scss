@@ -47,6 +47,19 @@ body {
     color: $primary-900;
 }
 
+.title-18 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 150%;
+    color: $primary-900;
+}
+
+.title-black {
+    font-size: 1.2rem;
+    color: $primary-900;
+}
+
 .mb-16 {
     margin-bottom: 1.6rem;
 }
@@ -55,6 +68,14 @@ body {
     margin-bottom: 2.4rem;
 }
 
+.mb-32 {
+    margin-bottom: 3.2rem;
+}
+
 .mb-40 {
     margin-bottom: 4rem;
+}
+
+.pl-20 {
+    padding-left: 2rem;
 }

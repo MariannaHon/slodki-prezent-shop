@@ -57,60 +57,76 @@ dla dzieci</h4>
                   <h2 className='section-title'>Nasze zalety</h2>
                   <div className={css['about-zalety-text']}>
                         <h4 className={css['about-zalety-text-title']}>Zapraszamy do współpracy</h4>
-                        <p>W Słodkim Prezentcie tworzymy upominki, które wywołują uśmiech. Podaruj swoim pracownikom, partnerom i najmłodszym odrobinę słodkiej radości – z nami to proste!</p>
-                        <Link href='/'>Zamów teraz</Link>
+                        <p className={css['about-zalety-text-text']}>W Słodkim Prezentcie tworzymy upominki, które wywołują uśmiech. Podaruj swoim pracownikom, partnerom i najmłodszym odrobinę słodkiej radości – z nami to proste!</p>
+                        <Link className={css['about-zalety-text-btn']} href='/boksy'>Zamów teraz</Link>
                   </div>
               </div>
-              <ul>
-                  <li>
-                    <svg className={css['about-content-list-item-icon']}>
-                        <use href="/icons.svg#icon-client"></use>
-                    </svg>
-                    <h4>Podejście zorientowane na klienta </h4>
+              <ul className={css['about-zalety-list']}>
+                  <li className={css['about-zalety-list-item']}>
+                    <div className={css['about-zalety-list-item-top']}>
+                        <div className={css['about-zalety-list-item-top-wrapper']}>
+                            <svg className={css['about-zalety-list-item-top-wrapper-icon']}>
+                                <use href="/icons.svg#icon-client"></use>
+                            </svg>
+                        </div>
+                        <h4 className='title-18'>Podejście zorientowane na klienta </h4>
+                    </div>
                     <p>szybka realizacja zamówień, przejrzystość procesu, możliwość wprowadzania zmian po uzgodnieniu</p>
                   </li>
-                  <li>
-                    <svg className={css['about-content-list-item-icon']}>
-                        <use href="/icons.svg#icon-trust"></use>
-                    </svg>
-                    <h4>Niezawodność </h4>
-                    <p>realizacja w terminie, przestrzeganie jakości, otwarta komunikacja</p>
-                  </li>
-                  <li>
-                    <svg className={css['about-content-list-item-icon']}>
-                        <use href="/icons.svg#icon-asortyment"></use>
-                    </svg>
-                    <h4>Szeroki i różnorodny asortyment </h4>
+                  <li className={css['about-zalety-list-item']}>
+                    <div className={css['about-zalety-list-item-top']}>
+                        <div className={css['about-zalety-list-item-top-wrapper']}>
+                            <svg className={css['about-zalety-list-item-top-wrapper-icon']}>
+                                <use href="/icons.svg#icon-asortyment"></use>
+                            </svg>
+                        </div>
+                        <h4 className='title-18'>Szeroki i różnorodny asortyment </h4>
+                    </div>
                     <p>ponad 500 wariantów prezentów świątecznych w opakowaniach z tkaniny, kartonu, drewna, metalu, woreczków i zabawek</p>
                   </li>
-                  <li>
-                    <svg className={css['about-content-list-item-icon']}>
-                        <use href="/icons.svg#icon-elastic"></use>
-                    </svg>
-                    <h4>Elastyczna waga i zawartość</h4>
+                  <li className={css['about-zalety-list-item']}>
+                    <div className={css['about-zalety-list-item-top']}>
+                        <div className={css['about-zalety-list-item-top-wrapper']}>
+                            <svg className={css['about-zalety-list-item-top-wrapper-icon']}>
+                                <use href="/icons.svg#icon-trust"></use>
+                            </svg>
+                        </div>
+                        <h4 className='title-18'>Niezawodność </h4>
+                    </div>
+                    <p>realizacja w terminie, przestrzeganie jakości, otwarta komunikacja</p>
+                  </li>
+                  <li className={css['about-zalety-list-item']}>
+                    <div className={css['about-zalety-list-item-top']}>
+                        <div className={css['about-zalety-list-item-top-wrapper']}>
+                            <svg className={css['about-zalety-list-item-top-wrapper-icon']}>
+                                <use href="/icons.svg#icon-elastic"></use>
+                            </svg>
+                        </div>
+                        <h4 className='title-18'>Elastyczna waga i zawartość</h4>
+                    </div>
                     <p>gotowe zestawy od 300g do 5 kg oraz możliwość personalizacji składu i projektu</p>
                   </li>
               </ul>
           </div>
-          <div>
-              <h2>Nasze osiągnięcia w liczbach</h2>
-              <p>Zaufało nam ponad tysiąc firm w całej Polsce. Sprawdź, dlaczego jesteśmy liderem w branży prezentów korporacyjnych.</p>
-              <ul>
+          <div className={css['about-achivments']}>
+              <h2 className='section-title mb-16'>Nasze osiągnięcia w liczbach</h2>
+              <p className={css['about-achivments-text']}>Zaufało nam ponad tysiąc firm w całej Polsce. Sprawdź, dlaczego jesteśmy liderem w branży prezentów korporacyjnych.</p>
+              <ul className={css['about-achivments-list']}>
                 <li>
-                    <h3>15+</h3>
-                    <p>Lat doświadczenia</p>
+                    <h3 className={css['about-achivments-list-title']}>15+</h3>
+                    <p className={css['about-achivments-list-text']}>Lat doświadczenia</p>
                 </li>
                 <li>
-                    <h3>1200+</h3>
-                    <p>Zadowolonych klientów</p>
+                    <h3 className={css['about-achivments-list-title']}>1200+</h3>
+                    <p className={css['about-achivments-list-text']}>Zadowolonych klientów</p>
                 </li>
                 <li>
-                    <h3>50K+</h3>
-                    <p>Dostarczonych prezentów</p>
+                    <h3 className={css['about-achivments-list-title']}>50K+</h3>
+                    <p className={css['about-achivments-list-text']}>Dostarczonych prezentów</p>
                 </li>
                 <li>
-                    <h3>98%</h3>
-                    <p>Satysfakcja klientów</p>
+                    <h3 className={css['about-achivments-list-title']}>98%</h3>
+                    <p className={css['about-achivments-list-text']}>Satysfakcja klientów</p>
                 </li>
               </ul>
           </div>

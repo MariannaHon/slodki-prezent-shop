@@ -1,4 +1,5 @@
 @use '../sass/abstracts/variables' as *;
+@use '../sass/abstracts/mixins' as *;
 
 .about {
     display: flex;
@@ -89,11 +90,12 @@
         display: flex;
         padding: 8rem 0;
         width: 120rem;
-        height: 35.2rem;
+        height: 51.2rem;
 
         &-wrapper {
             display: flex;
             flex-direction: column;
+            width: 38.4rem;
         }
 
         &-text {
@@ -107,6 +109,97 @@
                 line-height: 150%;
                 color: $primary-900;
                 margin-bottom: 0.8rem;
+            }
+            &-text {
+                font-size: 1.4rem;
+                line-height: 150%;
+            }
+
+            &-btn {
+                @include btnBrown(16.5rem);
+                margin-top: 3.2rem;
+            }
+        }
+
+        &-list {
+            display: flex;
+            width: 79.2rem;
+            flex-wrap: wrap;
+            gap: 2.4rem;
+            margin-left: 2.4rem;
+
+            &-item {
+                display: flex;
+                flex-direction: column;
+                width: 38.4rem;
+                border-radius: .8rem;
+                padding: 1.6rem;
+                box-shadow: 0 4px 6px 0 rgba(33, 22, 18, 0.1);
+                background: $secondary-100;
+
+                &-top {
+                    display: flex;
+                    align-items: center;
+                    width: 32rem;
+                    margin-bottom: 1.6rem;
+
+                    &-wrapper {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 1rem;
+                        width: 5.6rem;
+                        height: 5.6rem;
+                        border-radius: 10rem;
+                        background-color: $secondary-200;
+                    
+                            &-icon {
+                                width: 2.8rem;
+                                height: 2.8rem;
+                                fill: $primary-900;
+                            }
+                    
+                        }
+                }
+
+                
+            }
+        }
+    }
+
+    &-achivments {
+        padding: 8rem 0;
+        width: 120rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+
+        &-text {
+            font-family: "Open Sans", sans-serif;
+            font-size: 2rem;
+            width: 73.2rem;
+            margin-bottom: 5.6rem;
+        }
+
+        &-list {
+            display: flex;
+            gap: 10rem;
+
+            &-title {
+                font-weight: 700;
+                font-size: 6.4rem;
+                line-height: 120%;
+                text-align: center;
+                color: $primary-900;
+                margin-bottom: 0.8rem;
+            }
+
+            &-text {
+                font-weight: 600;
+                font-size: 2rem;
+                line-height: 150%;
+                color: $primary-900;
             }
         }
     }

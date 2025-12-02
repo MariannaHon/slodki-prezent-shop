@@ -1,0 +1,53 @@
+
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+.faq {
+    padding: 8rem 0;
+    width: 120rem;
+    align-items: center;
+    text-align: center;
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.4rem;
+        margin-bottom: 4rem;
+
+        &-item {
+            width: 58.8rem;
+            display: flex;
+            text-align: start;
+            gap: 1.6rem;
+
+            &-plus {
+               width: 2.4rem;
+               height: 2.4rem;
+               fill: $primary-900;    
+            }
+
+            &-close {
+                width: 2.4rem;
+                height: 2.4rem;
+                fill: $primary-700;
+            }
+        }
+    }
+
+    &-bottom {
+        display: flex;
+        gap: 2.4rem;
+        margin: 0 auto;
+        align-items: center;
+        width: 39.5rem;
+
+        &-text {
+            font-size: 1.8rem;
+            color: $primary-900;
+        }
+
+        &-btn {
+            @include btnBrown(15.3rem);
+        }
+    }
+}
