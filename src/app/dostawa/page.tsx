@@ -19,7 +19,7 @@ const DeliveryPage = () => {
                                 </svg>
                             </div>
                             
-                            <h2 className="section-title">Formy Dostawy</h2>
+                            <h2 className="delivery-title">Formy Dostawy</h2>
                         </div>
                         <div className={css['delivery-content-list-item-first']}>
                             <div className={css.circle}>
@@ -60,7 +60,7 @@ const DeliveryPage = () => {
                                 </svg>
                             </div>
                             
-                            <h2 className="section-title">Koszty Dostawy</h2>
+                            <h2 className="delivery-title">Koszty Dostawy</h2>
                         </div>
                         <table>
                             <thead>
@@ -99,7 +99,7 @@ const DeliveryPage = () => {
                                 </svg>
                             </div>
                             
-                            <h2 className="section-title">Formy Płatności</h2>
+                            <h2 className="delivery-title">Formy Płatności</h2>
                         </div>
                         <p>Dla wygody naszych klientów wszystkie płatności obsługiwane są przez bezpieczną bramkę Przelewy24. Dzięki temu możesz wybrać najdogodniejszą metodę płatności:</p>
                         <ul>
@@ -134,7 +134,7 @@ const DeliveryPage = () => {
                                 </svg>
                             </div>
                             
-                            <h2 className="section-title">Czas Realizacji</h2>
+                            <h2 className="delivery-title">Czas Realizacji</h2>
                         </div>
                           <p>Standardowy czas realizacji zamówienia wynosi od 1 do 3 dni roboczych. Czas ten nie obejmuje dostawy, która jest zależna od wybranej metody.</p>
                           <p>Etapy realizacji zamówienia:</p>
@@ -160,30 +160,30 @@ const DeliveryPage = () => {
                         </div>
                     </li>
                 </ul>
-                <div>
-                    <h3>Potrzebujesz pomocy?</h3>
+                <div className={css['delivery-content-contact']}>
+                    <h3 className="delivery-title">Potrzebujesz pomocy?</h3>
                     <p>Nasz zespół jest dostępny od poniedziałku do piątku w godzinach 8:00-19:00</p>
-                    <ul>
-                        <li>
-                            <svg>
+                    <ul className={css['delivery-content-contact-list']}>
+                        <li className={css['delivery-content-contact-list-item']}>
+                            <svg className={css['delivery-content-contact-list-item-icon']}>
                                 <use href="/icons.svg#icon-map"></use>
                             </svg>
                             <p>Ul. Jana Kazimierza 11a/4u <br/>01-248 Warszawa</p>
                         </li>
-                        <li>
-                            <svg>
+                        <li className={css['delivery-content-contact-list-item']}>
+                            <svg className={css['delivery-content-contact-list-item-icon']}>
                                 <use href="/icons.svg#icon-phone"></use>
                             </svg>
                             <a href="tel:+48736653527">+48 736 653 527</a>
                         </li>
-                        <li>
-                            <svg>
+                        <li className={css['delivery-content-contact-list-item']}>
+                            <svg className={css['delivery-content-contact-list-item-icon']}>
                                 <use href="/icons.svg#icon-mail"></use>
                             </svg>
                             <a href="mailto:candyboutique.manager@gmail.com">candyboutique.manager@gmail.com</a>
                         </li>
                     </ul>
-                    <Link href="/kontakt">Formularz kontaktowy</Link>
+                    <Link className={css['delivery-content-contact-list-item-btn']} href="/kontakt">Formularz kontaktowy</Link>
                 </div>
             </div>
             <FAQ/>
