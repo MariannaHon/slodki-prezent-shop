@@ -9,9 +9,9 @@ import Link from 'next/link';
 const Form = () => {
 
     const Validator = Yup.object().shape({
-        name: Yup.string().min(3, "Too Short!").max(30, "Too Long!").required("Required!"),
-        email: Yup.string().email().required("Required!"),
-        phone: Yup.number().min(9, "Too Short!").max(15, "Too Long!").required("Required!"),
+        name: Yup.string().min(3, "Za krótkie!").max(30, "Za długie!").required("Wymagane!"),
+        email: Yup.string().email().required("Wymagane!"),
+        phone: Yup.number().min(9, "Za krótkie!").max(15, "Za długie!").required("Wymagane!"),
         comment: Yup.string(),
     })
 
@@ -29,49 +29,52 @@ const Form = () => {
 
 
   return (
-    <div>
+      <div className={css.form}>
+          <h3 className={css['form-title']}>Napisz do nas</h3>
        <Formik
                 initialValues={initialValues}
                 validationSchema={Validator}
                 onSubmit={handleSubmit}>
-                <FormikForm className={css.form}>
-                  <div className={css.label}>
-                      <label htmlFor="name" className={css.labelText}>Imię i nazwisko</label>
-                        <Field className={css.field} type="text" name="name" ></Field>
+                <FormikForm>
+                  <div className={css['form-label']}>
+                      <label htmlFor="name" className='title-18'>Imię i nazwisko</label>
+                        <Field className={css['form-label-field']} type="text" name="name" ></Field>
 
-                        <ErrorMessage className={css.error} name="name" component="span" />
+                        <ErrorMessage name="name" component="span" />
                     </div>
-                    <div className={css.label}>
-                        <label htmlFor="email" className={css.labelText}>Email</label>
-                        <Field className={css.field} type="text" name="email"></Field>
+                    <div className={css['form-label']}>
+                        <label htmlFor="email" className='title-18'>Email</label>
+                        <Field className={css['form-label-field']} type="text" name="email"></Field>
 
-                        <ErrorMessage className={css.error} name="email" component="span" />
+                        <ErrorMessage name="email" component="span" />
                     </div>
-                    <div className={css.label}>
-                        <label htmlFor="phone" className={css.labelText}>Numer telefonu</label>
-                        <Field className={css.field} type="text" name="phone"></Field>
+                    <div className={css['form-label']}>
+                        <label htmlFor="phone" className='title-18'>Numer telefonu</label>
+                        <Field className={css['form-label-field']} type="text" name="phone"></Field>
 
-                        <ErrorMessage className={css.error} name="phone" component="span" />
+                        <ErrorMessage name="phone" component="span" />
                     </div>
-                    <div className={css.label}>
-                        <label htmlFor="comment" className={css.labelText}>Wiadomość</label>
-                        <Field className={css.comment} type="text" name="comment"></Field>
+                    <div className={css['form-label']}>
+                        <label htmlFor="comment" className='title-18'>Wiadomość</label>
+                        <Field className={css['form-label-comment']} as="textarea" name="comment"></Field>
 
-                        <ErrorMessage className={css.error} name="comment" component="span" />
+                        <ErrorMessage name="comment" component="span" />
                   </div>
-                  <div>
-                        <div>
-                            <svg className={css['footer-top-links-icon']}>
-                                <use href="/icons.svg#icon-box"></use>
-                            </svg>
-                            <svg className={css['footer-top-links-icon']}>
-                                <use href="/icons.svg#icon-check"></use>
-                            </svg>
-                      </div>
-                      <p>Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z <Link href='/privacy'>polityką prywatności</Link></p>
-                  </div>
+                   <div className={css['form-bottom']}>
+                        <input className="visually-hidden" type="checkbox" id="user-privacy" name="user-privacy" value="true"
+                            required />
+                        <label htmlFor="user-privacy" className={css["form-bottom-check"]}>
+                            <span className={css["form-bottom-check-span"]}>
+                                <svg width="16" height="16" className={css['form-bottom-check-span-icon']}>
+                                    <use href="/icons.svg#icon-check"></use>
+                                </svg>
+                            </span>
+                            <span className={css['form-bottom-check-text']}>Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z <Link className={css['form-bottom-check-text-privacy']} href='/privacy'>polityką prywatności</Link>
+                            </span>
+                        </label>
+                    </div>
                   
-                    <button className={css.btn} type="submit">Wyślij Wiadomość</button>
+                    <button className={css['form-btn']} type="submit">Wyślij Wiadomość</button>
                 </FormikForm>
             </Formik>
     </div>

@@ -1,8 +1,8 @@
-import BlogCard from "../BlogCard/BlogCard"
+import BlogCard from '../BlogCard/BlogCard'
 import css from './Blog.module.scss'
 
 
-const Blog = () => {
+const blogPage = () => {
   return (
     <div className={css.blog}>
           <div className="container">
@@ -14,4 +14,4 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default blogPage

@@ -1,0 +1,98 @@
+
+@use '../sass/abstracts/variables' as *;
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    padding: 8rem 0;
+    width: 144rem;
+    font-family: "Open Sans", sans-serif;
+
+    &-list {
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+        margin-bottom: 8rem;
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+
+            border-radius: .8rem;
+            padding: 2.4rem 0;
+            box-shadow: 0 .4rem .6rem 0 rgba(33, 22, 18, 0.1);
+            background: $secondary-100;
+            width: 28.2rem;
+            height: 19.7rem;
+
+            &-wrapper {
+                width: 6.4rem;
+                height: 6.4rem;
+                border-radius: 100%;
+                background-color: $secondary-500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.2rem;
+
+                &-icon {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    fill: $primary-700;
+                    display: flex;
+                    flex-shrink: 0;
+                }
+            }
+
+            &-text {
+                line-height: 150%;
+                color: $primary-900;
+            }
+
+            &-details {
+                font-size: 1.4rem;
+                line-height: 150%;
+                color: $primary-500;
+            }
+        }
+    }
+
+    &-content {
+        display: flex;
+        gap: 2.4rem;
+        align-items: center;
+        margin-bottom: 8rem;
+    }
+
+    &-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8rem 0;
+        background-color: $secondary-100;
+        width: 144rem;
+
+        &-list {
+            display: flex;
+            gap: 2.4rem;
+
+            &-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 6.4rem;
+                height: 6.4rem;
+                background-color: $secondary-300;
+                border-radius: 100%;
+
+                &-icon {
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    fill: $primary-700;
+                }
+            }
+        }
+    }
+}

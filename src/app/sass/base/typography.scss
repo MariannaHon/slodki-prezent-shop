@@ -39,6 +39,14 @@ body {
     color: $primary-900;
 }
 
+.sub-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2rem;
+    line-height: 150%;
+    text-align: center;
+    color: $primary-700;
+}
+
 .card-title {
     font-family: "Open Sans", sans-serif;
     font-weight: 700;
@@ -87,4 +95,25 @@ body {
 
 .pl-20 {
     padding-left: 2rem;
+}
+
+.w766 {
+    width: 76.6rem;
+}
+
+.w416 {
+    width: 41.6rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }

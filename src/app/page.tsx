@@ -5,7 +5,7 @@ import Recommendations from "./components/Recommendations/Recommendations";
 import Clients from "./components/Clients/Clients";
 import ONas from "./components/ONas/ONas";
 import Popular from "./components/Popular/Popular";
-import Blog from "./components/Blog/Blog";
+import Blog from './components/Blog/Blog'
 import Skontaktuj from "./components/Skontaktuj/Skontaktuj";
 
 export default function Home() {

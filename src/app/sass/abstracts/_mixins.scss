@@ -1,7 +1,11 @@
 @use './variables' as *;
 
 @mixin btnBrown($width) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: "Open Sans", sans-serif;
+    font-size: 1.6rem;
     font-weight: 600;
     text-align: center;
     color: #fff;
@@ -15,7 +19,11 @@
 }
 
 @mixin btnWhite($width) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: "Open Sans", sans-serif;
+    font-size: 1.6rem;
     font-weight: 600;
     text-align: center;
     color: $primary-500;
