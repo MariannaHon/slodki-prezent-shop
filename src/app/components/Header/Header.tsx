@@ -43,13 +43,16 @@ const Header = () => {
                             </svg>
                       </div>
                 </li>
-                  <li>
-                        <svg
-                        width="24"
-                        height="24"
-                        >
-                            <use href="/icons.svg#icon-cart"></use>
-                        </svg>
+              <li>
+                <Link href='/cart'>
+                  <svg
+                    width="24"
+                    height="24"
+                    >
+                      <use href="/icons.svg#icon-cart"></use>
+                  </svg>
+                </Link>
+                        
                 </li>
               </ul>
           </nav>
