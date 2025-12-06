@@ -85,6 +85,23 @@ body {
     color: $primary-900;
 }
 
+.cart-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.4rem;
+    line-height: 150%;
+    color: $primary-900;
+}
+
+.title-16 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: $primary-900;
+}
+
+.mb-8 {
+    margin-bottom: 0.8rem;
+}
+
 .mb-16 {
     margin-bottom: 1.6rem;
 }
@@ -103,6 +120,10 @@ body {
 
 .pl-20 {
     padding-left: 2rem;
+}
+
+.pl-120 {
+    padding-left: 12rem;
 }
 
 .w766 {
