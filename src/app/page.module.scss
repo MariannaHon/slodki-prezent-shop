@@ -7,6 +7,7 @@
     align-items: center;
     width: 120rem;
     margin: 0 auto;
+    font-family: "Open Sans", sans-serif;
 
     &-left {
         display: flex;
@@ -14,21 +15,26 @@
         width: 56.3rem;
         margin-right: auto;
 
-        &-title {
-            
-            margin-bottom: 2.4rem;
+        &-text {
+            font-size: 2rem;
+            margin-bottom: 4rem;
         }
 
-        &-btn {
-            &-brown {
-                @include btnBrown(16.7rem);
-                margin-right: 1.6rem;
-            }
+        &-wrapper {
+            display: flex;
+            gap: 1.6rem;
 
-            &-white {
-                @include btnWhite(18.1rem);
+            &-btn {
+                &-brown {
+                    @include btnBrown(16.7rem);
+                }
+        
+                &-white {
+                    @include btnWhite(19rem);
+                }
             }
         }
+        
     }
 }
 

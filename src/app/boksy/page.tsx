@@ -1,10 +1,27 @@
 
+'use client';
+
 import css from "./page.module.scss";
 import Filters from "../components/Filters/Filters";
 // import ProductCard from "../components/ProductCard/ProductCard";
-import RecommendCard from "../components/RecommendCard/RecommendCard";
+// import RecommendCard from "../components/RecommendCard/RecommendCard";
+
+import { useEffect } from 'react';
+import { useAppDispatch } from "../../redux/hooks";
+
+import { fetchProducts } from '../../redux/products/operations';
+import Recommendations from "../components/Recommendations/Recommendations";
+
 
 export default function BoksyPage() {
+
+    const dispatch = useAppDispatch();
+    
+      useEffect(() => {
+          dispatch(fetchProducts());
+      }, [dispatch]);
+
+
     return (
         <div className="container">
             <div className={css.boksy}>
@@ -18,7 +35,8 @@ export default function BoksyPage() {
 
                 <div className={css['boksy-layout']}>
                     <Filters />
-                    <RecommendCard/>
+                    <Recommendations/>
+                    {/* <RecommendCard/> */}
                     {/* <ProductCard /> */}
                 </div>
                 <div className={css['boksy-bottom']}>

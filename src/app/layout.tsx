@@ -1,10 +1,14 @@
+
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "./sass/main.scss";
 
 import type { Metadata } from "next";
+import { Providers } from './provider';
 
 import { Open_Sans, Inter, Poppins, Roboto, Merriweather, Playfair_Display } from "next/font/google";
+
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -52,14 +56,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${openSans.className} ${inter.className} ${poppins.className} ${roboto.className} ${merriweather.className} ${playfair.className} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
