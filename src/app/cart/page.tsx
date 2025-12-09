@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link"
 import Image from "next/image"
-import RecommendCard from "../components/RecommendCard/RecommendCard"
+// import RecommendCard from "../components/RecommendCard/RecommendCard"
 import css from './page.module.scss'
 import CartCard from "../components/CartCard/CartCard"
 
@@ -126,7 +126,7 @@ const cartPage = () => {
           <h2 className="section-title mb-40">Polecane produkty</h2>
           <ul>
             <li>
-              <RecommendCard/>
+              {/* <RecommendCard/> */}
             </li>
           </ul>
         </div>
