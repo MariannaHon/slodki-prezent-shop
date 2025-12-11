@@ -14,13 +14,17 @@ import { useEffect } from 'react';
 import { useAppDispatch } from "../redux/hooks";
 
 import { fetchProducts } from '../redux/products/operations';
+import { fetchArticles } from "../redux/blog/operations";
+import { fetchHolidays } from "../redux/holidays/operations";
 
 export default function Home() {
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-      dispatch(fetchProducts());
+    dispatch(fetchProducts());
+    dispatch(fetchArticles());
+    dispatch(fetchHolidays());
   }, [dispatch]);
 
   return (

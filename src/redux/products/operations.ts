@@ -19,3 +19,20 @@ export const fetchProducts = createAsyncThunk(
         }
     }
 );
+
+export const fetchProductById = createAsyncThunk("/product/fetchById", async (id, thunkAPI) => {
+    try {
+        const response = await axios.get(`/presents/${id}`);
+        return response.data.data;
+    } catch (e) {
+      let errorMessage = "Something went wrong :( Try to reload your page.";
+
+      if (e instanceof Error) {
+        errorMessage = e.message;
+      }
+
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(errorMessage);
+    }
+  }
+);

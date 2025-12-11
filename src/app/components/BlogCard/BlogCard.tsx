@@ -1,25 +1,34 @@
+'use client';
+
 import Image from "next/image"
 import Link from "next/link"
 import css from './BlogCard.module.scss'
 
-const BlogCard = () => {
+import { Blog } from "@/src/redux/blog/slice";
+
+export interface BlogProps {
+  blog: Blog;
+}
+
+
+const BlogCard: React.FC<BlogProps> = ({blog}) => {
   return (
     <div className={css.card}>
         <Image
             priority
             className={css['card-image']}
-            src="/images/gift.png"
+            src={blog.photo}
             width="384"
             height="224"
             alt="Give a present"
           />
           <div className={css['card-content']}>
               <div className={css['card-content-top']}>
-                  <p className={css['card-content-top-tag']}>Wszystkie</p>
-                  <p className={css['card-content-top-date']}>12 Maja 2023</p>
+                  <p className={css['card-content-top-tag']}>{blog.category}</p>
+                  <p className={css['card-content-top-date']}>{blog.date}</p>
               </div>
-              <p className="card-title">Jak wybrać idealny prezent dla klienta biznesowego?</p>
-              <p className={css['card-content-text']}>Poznaj 5 sprawdzonych zasad wybierania prezentów, które wzmocnią relacje biznesowe i zostawią niezapomniane wrażenie.</p>
+              <p className="card-title">{blog.title}</p>
+              <p className={css['card-content-text']}>{blog.description}</p>
               <Link className={css['card-content-btn']} href='/'>Czytaj więcej</Link>
           </div>
     </div>

@@ -1,8 +1,8 @@
 import { productsReducer } from './products/slice';
-// import { blogReducer } from './blog/slice';
+import { blogReducer } from './blog/slice';
 // import cartReducer from './cart/slice';
 // import { filtersReducer } from './filters/slice';
-// import { wishListReducer } from './wishlist/slice';
+import { holidaysReducer } from './holidays/slice';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import {
     persistReducer,
@@ -16,11 +16,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-// const wishPersistConfig = {
-//     key: 'wish',
-//     storage,
-// };
-
 // const cartPersistConfig = {
 //     key: 'cart',
 //     storage,
@@ -29,8 +24,9 @@ import storage from 'redux-persist/lib/storage';
 const rootReducer = combineReducers({
     // cart: persistReducer(cartPersistConfig, cartReducer),
     products: productsReducer,
-    // blog: blogReducer,
+    blog: blogReducer,
     // filters: filtersReducer,
+    holidays: holidaysReducer
 });
 
 export const store = configureStore({

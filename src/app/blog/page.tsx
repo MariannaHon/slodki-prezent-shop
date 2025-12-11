@@ -1,3 +1,4 @@
+'use client'
 
 import css from './page.module.scss'
 import BlogCard from '../components/BlogCard/BlogCard'
@@ -5,8 +6,42 @@ import Link from 'next/link'
 import Skontaktuj from '../components/Skontaktuj/Skontaktuj'
 import PopularBlogCard from '../components/PopularBlogCard/PopularBlogCard'
 
+import { useEffect } from 'react';
+import { useAppDispatch } from "../../redux/hooks";
+
+import { fetchArticles } from '@/src/redux/blog/operations';
+
+import { useSelector } from 'react-redux';
+
+import { selectArticle, selectError, selectLoading } from '@/src/redux/blog/selectors';
+
+import { Blog } from '@/src/redux/blog/slice'
 
 const blogPage = () => {
+
+   const dispatch = useAppDispatch();
+  
+    useEffect(() => {
+        dispatch(fetchArticles());
+    }, [dispatch]);
+  
+  
+  const articles = useSelector(selectArticle);
+    const error = useSelector(selectError);
+    const isLoading = useSelector(selectLoading);
+  
+    if (isLoading) {
+        return <p>Page is loading</p>;
+    }
+  
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+  
+    if (!articles) {
+        return <p>No articles found</p>;
+    }
+
   return (
     <div className={css.blog}>
       <div className='container'>
@@ -21,7 +56,12 @@ const blogPage = () => {
         </ul>
         <div className={css['blog-content']}>
           <div className={css['blog-content-cards']}>
-            <BlogCard />
+            <ul className={css['recommend-list']}>{articles.map((blog: Blog) => (
+              <li key={blog._id}>
+                  <BlogCard blog={blog} />
+              </li>
+          ))}
+        </ul>
             <button className={css['blog-content-cards-btn']}>Zobacz więcej</button>
           </div>
           <div className={css['blog-content-right']}>
