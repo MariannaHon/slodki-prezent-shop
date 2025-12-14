@@ -1,0 +1,11 @@
+.holidays {
+    display: flex;
+    width: 120rem;
+    height: 21rem;
+    gap: 2.4rem;
+
+    &-item {
+        width: 28.2rem;
+        height: 16.3rem;
+    }
+}
