@@ -1,0 +1,94 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    width: 38.4rem;
+
+    &-wrapper {
+        border: 1px solid $primary-300;
+        border-radius: 1.2rem;
+        padding: 2.4rem;
+
+        &-title {
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 150%;
+            color: $primary-900;
+        }
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin-top: 2.4rem;
+        }
+
+    }
+
+    &-follow {
+        border: 1px solid $primary-300;
+        border-radius: 1.2rem;
+        padding: 2.4rem;
+
+        &-list {
+            display: flex;
+            gap: 2.4rem;
+            align-items: center;
+            justify-content: center;
+
+            &-item {
+                width: 6.4rem;
+                height: 6.4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $secondary-300;
+                border-radius: 100%;
+
+                &-icon {
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    display: flex;
+                    flex-shrink: 0;
+                    fill: $primary-700;
+                }
+            }
+        }
+    }
+
+    &-sign {
+        border: 1px solid $primary-300;
+        border-radius: 1.2rem;
+        padding: 2.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        &-text {
+            font-size: 1.4rem;
+            line-height: 150%;
+            color: $primary-700;
+        }
+
+        &-input {
+            border: 1px solid $primary-200;
+            border-radius: .8rem;
+            padding: .8rem 1.6rem;
+            width: 33.6rem;
+            height: 4rem;
+
+            &::placeholder {
+                font-size: 1.4rem;
+                line-height: 150%;
+                color: $primary-300;
+            }
+        }
+
+        &-btn {
+            @include btnBrown(100%);
+        }
+    }
+}

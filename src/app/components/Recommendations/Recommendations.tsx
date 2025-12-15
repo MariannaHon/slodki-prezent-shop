@@ -2,6 +2,7 @@
 
 import css from './Recommendations.module.scss';
 import RecommendCard from '../RecommendCard/RecommendCard';
+import Link from 'next/link';
 
 import { Product } from '@/src/redux/products/slice';
 import { useSelector } from 'react-redux';
@@ -33,9 +34,11 @@ const Recommendations = () => {
         <p className={css['recommend-text']}>Wybierz kategorię produktów dopasowaną do Twoich potrzeb</p>
         
           <ul className={css['recommend-list']}>{products.map((product: Product) => (
-              <li key={product._id}>
-                  <RecommendCard product={product} />
-              </li>
+                <li key={product._id}>
+                    <Link href={`/boksy/${product._id}`}>
+                        <RecommendCard product={product} />
+                    </Link>
+                </li>
           ))}
         </ul>
             <button className={css['recommend-btn']} type="button">Zobacz więcej</button>

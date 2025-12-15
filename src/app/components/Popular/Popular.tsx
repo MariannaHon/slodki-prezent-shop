@@ -17,6 +17,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 
 import { useState } from "react";
+import Link from "next/link";
 
 
 const Popular = () => {
@@ -60,7 +61,9 @@ const Popular = () => {
               >
                 {products.map((product: Product) => (
                   <SwiperSlide className={css.item} key={product._id}>
-                    <PopularCard product={product} />
+                    <Link href={`/boksy/${product._id}`}>
+                      <PopularCard product={product} />
+                  </Link>
                   </SwiperSlide>
                 ))}
                 <div className="swiper-button-prev"></div>

@@ -11,4 +11,14 @@
         display: flex;
         text-align: center;
     }
+
+    &-list {
+        display: flex;
+        width: 120rem;
+        height: 55rem;
+
+        &-item {
+            height: 47.3rem;
+        }
+    }
 }

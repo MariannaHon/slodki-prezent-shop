@@ -3,14 +3,18 @@
 
 import css from "./page.module.scss";
 import Filters from "../components/Filters/Filters";
-// import ProductCard from "../components/ProductCard/ProductCard";
-// import RecommendCard from "../components/RecommendCard/RecommendCard";
+import ProductCard from "../components/ProductCard/ProductCard";
 
 import { useEffect } from 'react';
 import { useAppDispatch } from "../../redux/hooks";
 
 import { fetchProducts } from '../../redux/products/operations';
-import Recommendations from "../components/Recommendations/Recommendations";
+
+import { Product } from '@/src/redux/products/slice';
+import { useSelector } from 'react-redux';
+
+import { selectProducts, selectError, selectLoading } from '@/src/redux/products/selectors';
+import Link from "next/link";
 
 
 export default function BoksyPage() {
@@ -20,6 +24,22 @@ export default function BoksyPage() {
       useEffect(() => {
           dispatch(fetchProducts());
       }, [dispatch]);
+
+    const products = useSelector(selectProducts);
+    const error = useSelector(selectError);
+    const isLoading = useSelector(selectLoading);
+
+    if (isLoading) {
+        return <p>Page is loading</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+
+    if (!products) {
+        return <p>No products found</p>;
+    }
 
 
     return (
@@ -35,9 +55,14 @@ export default function BoksyPage() {
 
                 <div className={css['boksy-layout']}>
                     <Filters />
-                    <Recommendations/>
-                    {/* <RecommendCard/> */}
-                    {/* <ProductCard /> */}
+                    <ul className={css['recommend-list']}>{products.map((product: Product) => (
+                        <li key={product._id}>
+                            <Link href={`/boksy/${product._id}`}>
+                                <ProductCard product={product} />
+                            </Link>
+                        </li>
+                ))}
+                    </ul>
                 </div>
                 <div className={css['boksy-bottom']}>
                     <div>

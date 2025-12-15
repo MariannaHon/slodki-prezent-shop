@@ -7,7 +7,7 @@ export interface Product {
     img: string;
     name: string;
     description: string;
-    contains: string;
+    contains: string[];
     price: number;
     oldPrice: number;
     photo: string;
