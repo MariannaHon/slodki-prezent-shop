@@ -15,8 +15,9 @@
         margin-bottom: 4rem;
 
         &-item {
-            width: 58.8rem;
+            width: 58rem;
             display: flex;
+            flex-direction: column;
             text-align: start;
             gap: 1.6rem;
 
@@ -30,6 +31,13 @@
                 width: 2.4rem;
                 height: 2.4rem;
                 fill: $primary-700;
+            }
+
+            &-header {
+                background-color: transparent;
+                border: none;
+                display: flex;
+                align-items: center;
             }
         }
     }
@@ -50,4 +58,65 @@
             @include btnBrown(15.3rem);
         }
     }
+}
+
+.faq-list-item svg {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    transform: translateY(-65%);
+    width: 2.4rem;
+    height: 2.4rem;
+    transition: opacity 0.2s ease;
+}
+
+[data-state='closed'] .faq-list-item-plus {
+    display: inline;
+}
+
+[data-state='closed'] .faq-list-item-close {
+    display: none;
+}
+
+[data-state='open'] .faq-list-item-plus {
+    display: none;
+}
+
+[data-state='open'] .faq-list-item-close {
+    display: inline;
+}
+
+.faq-content {
+    overflow: hidden;
+    padding: 0 20px 10px;
+    transition: height 0.3s ease;
+}
+
+.faq-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-align: left;
+
+    &-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: $primary-900;
+        padding-left: 3rem;
+        margin-bottom: 1.6rem;
+        transition: color 0.3s ease;
+    }
+}
+
+.faq-trigger:hover h4.faq-trigger-title {
+    color: $primary-700;
+}
+
+[data-state="open"] .faq-trigger-title {
+    color: $primary-700;
 }

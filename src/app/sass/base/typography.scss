@@ -98,6 +98,22 @@ body {
     color: $primary-900;
 }
 
+.faq-title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 120%;
+    color: $primary-900;
+    margin-bottom: 1.6rem;
+    padding-left: 3rem;
+}
+
+.faq-title:hover,
+.faq-title:focus,
+.faq-title:active {
+    color: $primary-700;
+}
+
 .mb-8 {
     margin-bottom: 0.8rem;
 }
@@ -120,6 +136,10 @@ body {
 
 .pl-20 {
     padding-left: 2rem;
+}
+
+.pl-30 {
+    padding-left: 3rem;
 }
 
 .pl-120 {
