@@ -15,15 +15,25 @@ import { useSelector } from 'react-redux';
 
 import { selectProducts, selectError, selectLoading } from '@/src/redux/products/selectors';
 import Link from "next/link";
+import { RootState } from "@/src/redux/store";
 
 
 export default function BoksyPage() {
 
+    const filters = useSelector((state: RootState) => state.filters);
+      const { page, perPage } = useSelector((state: RootState) => state.products);
+
     const dispatch = useAppDispatch();
     
       useEffect(() => {
-          dispatch(fetchProducts());
-      }, [dispatch]);
+          dispatch(fetchProducts({
+        page,
+        perPage,
+        dlaKogo: filters.dlaKogo,
+        swieta: filters.swieta,
+        cena: filters.cena,
+    }));
+      }, [dispatch, page, perPage, filters]);
 
     const products = useSelector(selectProducts);
     const error = useSelector(selectError);

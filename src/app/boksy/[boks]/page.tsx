@@ -15,8 +15,14 @@ import { useAppDispatch } from "../../../redux/hooks";
 
 import { fetchProducts } from '../../../redux/products/operations';
 
+import { RootState } from '@/src/redux/store';
+
 
 const ProductPage: React.FC = () => {
+
+    const filters = useSelector((state: RootState) => state.filters);
+    const { page, perPage } = useSelector((state: RootState) => state.products);
+    
     const dispatch = useAppDispatch();
 
     const pathname = usePathname();
@@ -27,9 +33,15 @@ const ProductPage: React.FC = () => {
 
     useEffect(() => {
         if (!products || products.length === 0) {
-            dispatch(fetchProducts());
+            dispatch(fetchProducts({
+        page,
+        perPage,
+        dlaKogo: filters.dlaKogo,
+        swieta: filters.swieta,
+        cena: filters.cena,
+    }));
         }
-    }, [dispatch, products]);
+    }, [dispatch, products, page, perPage, filters]);
 
     const productId = pathname.split('/').pop();
     const product = products.find(item => item._id?.toString() === productId);
