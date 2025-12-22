@@ -4,11 +4,19 @@ import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = "https://slodki-prezent-db.onrender.com/";
 
+interface FetchProductsParams {
+    page?: number;
+    perPage?: number;
+    dlaKogo?: string;
+    swieta?: string;
+    cena?: string;
+}
+
 export const fetchProducts = createAsyncThunk(
     'products/fetch',
-    async (_, thunkAPI) => {
+    async (params: FetchProductsParams = {}, thunkAPI) => {
         try {
-            const response = await axios.get(`/presents`);
+            const response = await axios.get(`/presents`, {params});
             return response.data.data;
         } catch (error) {
             if (error instanceof Error) {

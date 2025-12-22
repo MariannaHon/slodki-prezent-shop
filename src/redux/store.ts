@@ -1,7 +1,7 @@
 import { productsReducer } from './products/slice';
 import { blogReducer } from './blog/slice';
 // import cartReducer from './cart/slice';
-// import { filtersReducer } from './filters/slice';
+import { filtersReducer } from './filters/slice';
 import { holidaysReducer } from './holidays/slice';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import {
@@ -25,7 +25,7 @@ const rootReducer = combineReducers({
     // cart: persistReducer(cartPersistConfig, cartReducer),
     products: productsReducer,
     blog: blogReducer,
-    // filters: filtersReducer,
+    filters: filtersReducer,
     holidays: holidaysReducer
 });
 

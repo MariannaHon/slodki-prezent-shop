@@ -11,21 +11,34 @@ import Blog from './components/Blog/Blog'
 import Skontaktuj from "./components/Skontaktuj/Skontaktuj";
 
 import { useEffect } from 'react';
+import { useSelector } from "react-redux";
 import { useAppDispatch } from "../redux/hooks";
 
 import { fetchProducts } from '../redux/products/operations';
 import { fetchArticles } from "../redux/blog/operations";
 import { fetchHolidays } from "../redux/holidays/operations";
+import { RootState } from "../redux/store";
+
+
 
 export default function Home() {
+
+  const filters = useSelector((state: RootState) => state.filters);
+  const { page, perPage } = useSelector((state: RootState) => state.products);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchProducts({
+        page,
+        perPage,
+        dlaKogo: filters.dlaKogo,
+        swieta: filters.swieta,
+        cena: filters.cena,
+    }));
     dispatch(fetchArticles());
     dispatch(fetchHolidays());
-  }, [dispatch]);
+  }, [dispatch, page, perPage, filters]);
 
   return (
     <main>

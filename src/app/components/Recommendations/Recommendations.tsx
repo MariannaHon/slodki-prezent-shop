@@ -6,26 +6,37 @@ import Link from 'next/link';
 
 import { Product } from '@/src/redux/products/slice';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from "../../../redux/hooks";
+import { RootState } from '@/src/redux/store';
 
 import { selectProducts, selectError, selectLoading } from '@/src/redux/products/selectors';
+import { fetchProducts } from '@/src/redux/products/operations';
 
 const Recommendations = () => {
+    const dispatch = useAppDispatch();
+
+    const { page, totalPages } = useSelector((state: RootState) => state.products);
+    const filters = useSelector((state: RootState) => state.filters);
 
   const products = useSelector(selectProducts);
   const error = useSelector(selectError);
-  const isLoading = useSelector(selectLoading);
+    const isLoading = useSelector(selectLoading);
+    
+    const handleLoadMore = () => {
+        if (page < totalPages && !isLoading) {
+            dispatch(fetchProducts({
+                page: page + 1,
+                perPage: 6,
+                dlaKogo: filters.dlaKogo,
+                swieta: filters.swieta,
+                cena: filters.cena,
+            }));
+        }
+    };
 
-  if (isLoading) {
-      return <p>Page is loading</p>;
-  }
-
-  if (error) {
-      return <p>Error: {error}</p>;
-  }
-
-  if (!products) {
-      return <p>No products found</p>;
-  }
+  if (isLoading && page === 1) return <p>Page is loading</p>;
+    if (error) return <p>Error: {error}</p>;
+    if (!products.length) return <p>No products found</p>;
 
   return (
     <div className={css.recommend}>
@@ -39,9 +50,18 @@ const Recommendations = () => {
                         <RecommendCard product={product} />
                     </Link>
                 </li>
-          ))}
+            ))}
         </ul>
-            <button className={css['recommend-btn']} type="button">Zobacz więcej</button>
+            {page < totalPages && (
+                <button
+                    className={css['recommend-btn']}
+                    type="button"
+                    onClick={handleLoadMore}
+                    disabled={isLoading}
+                >
+                    {isLoading ? 'Ładowanie...' : 'Zobacz więcej'}
+                </button>
+            )}
         </div>
     </div>
   )

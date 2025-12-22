@@ -17,16 +17,22 @@ export interface Product {
     new: boolean;
     discount: boolean;
     bestseller: boolean;
+    page: number;
+    perPage: number;
+    totalPages: number;
+    totalItems: number;
+    dlaKogo: string[];
+    swieta: string[];
 }
 
 interface ProductsState {
     items: Product[];
     loading: boolean;
     error: string | null;
-    // page: number;
-    // limit: number;
-    // order: 'high' | 'low' | null;
-    // view: 'grid' | 'list';
+    page: number;
+    perPage: number;
+    totalPages: number;
+    totalItems: number;
 }
 
 function handleLoading(state: ProductsState) {
@@ -43,47 +49,49 @@ const initialState: ProductsState = {
     items: [],
     loading: false,
     error: null,
-    // page: 1,
-    // limit: 10,
-    // order: null,
-    // view: 'list',
+    page: 1,
+    perPage: 6,
+    totalPages: 0,
+    totalItems: 0,
 };
 
 const productsSlice = createSlice({
     name: 'products',
     initialState: initialState,
     reducers: {
-        // changePage(state, action: PayloadAction<number>) {
-        //     state.page = action.payload;
-        // },
-        // changeLimit(state, action: PayloadAction<number>) {
-        //     state.limit = action.payload;
-        // },
-        // changeSortOrder(state, action: PayloadAction<'high' | 'low' | null>) {
-        //     state.order = action.payload;
-        // },
-        // changeViewMode(state, action: PayloadAction<'grid' | 'list'>) {
-        //     state.view = action.payload;
-        // },
+        changePage(state, action: PayloadAction<number>) {
+            state.page = action.payload;
+        },
+        changeLimit(state, action: PayloadAction<number>) {
+            state.perPage = action.payload;
+        },
     },
     extraReducers: builder =>
         builder
             .addCase(fetchProducts.pending, handleLoading)
             .addCase(fetchProducts.fulfilled, (state, action) => {
-                state.error = null;
-                state.loading = false;
+            state.loading = false;
+            state.error = null;
 
-                if (Array.isArray(action.payload)) {
-                    state.items = action.payload;
+            const payload = action.payload; 
+            if (payload && Array.isArray(payload.data)) {
+                if (state.page === 1) {
+                    state.items = payload.data;
                 } else {
-                    state.items = [];
-                    state.error = 'The received data is not an array.';
+                    state.items = [...state.items, ...payload.data];
                 }
-            })
+                state.page = payload.page;
+                state.perPage = payload.perPage; 
+                state.totalPages = payload.totalPages;
+                state.totalItems = payload.totalItems;
+            } else {
+                state.items = [];
+                state.error = 'The received data is not valid.';
+            }
+        })
             .addCase(fetchProducts.rejected, handleError),
 });
 
 export const productsReducer = productsSlice.reducer;
-// export const { changePage, changeLimit, changeSortOrder, changeViewMode } =
-//     productsSlice.actions;
+export const { changePage, changeLimit } = productsSlice.actions;
 
