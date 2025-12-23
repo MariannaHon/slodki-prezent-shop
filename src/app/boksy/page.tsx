@@ -18,7 +18,7 @@ import Link from "next/link";
 import { RootState } from "@/src/redux/store";
 
 import { changePage } from "@/src/redux/products/slice";
-import MAPPINGS from "@/src/utils/mappings.ts";
+import MAPPINGS from "@/src/utils/mappings";
 
 
 export default function BoksyPage() {
