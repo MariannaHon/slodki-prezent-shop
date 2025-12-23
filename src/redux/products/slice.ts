@@ -50,7 +50,7 @@ const initialState: ProductsState = {
     loading: false,
     error: null,
     page: 1,
-    perPage: 6,
+    perPage: 12,
     totalPages: 0,
     totalItems: 0,
 };
@@ -75,15 +75,11 @@ const productsSlice = createSlice({
 
             const payload = action.payload; 
             if (payload && Array.isArray(payload.data)) {
-                if (state.page === 1) {
-                    state.items = payload.data;
-                } else {
-                    state.items = [...state.items, ...payload.data];
-                }
-                state.page = payload.page;
-                state.perPage = payload.perPage; 
+                state.items = payload.data;
+                state.page = payload.page || 1;
+                state.perPage = payload.perPage || 12; 
                 state.totalPages = payload.totalPages;
-                state.totalItems = payload.totalItems;
+                state.totalItems = payload.totalItems || payload.data.length;
             } else {
                 state.items = [];
                 state.error = 'The received data is not valid.';

@@ -18,7 +18,7 @@ import { fetchProducts } from '../redux/products/operations';
 import { fetchArticles } from "../redux/blog/operations";
 import { fetchHolidays } from "../redux/holidays/operations";
 import { RootState } from "../redux/store";
-
+import Link from "next/link";
 
 
 export default function Home() {
@@ -48,8 +48,13 @@ export default function Home() {
             <h1 className='main-title mb-24'>Ekskluzywne Boksy Prezentowe dla Firm</h1>
             <p className={css['hero-left-text']}>Spersonalizowane zestawy słodyczy i alkoholi premium dla Twoich klientów i partnerów biznesowych</p>
             <div className={css['hero-left-wrapper']}>
-              <button className={css["hero-left-wrapper-btn-brown"]}>Zamów Teraz</button>
-              <button className={css["hero-left-wrapper-btn-white"]}>Zobacz Katalog</button>
+              <Link href="/boksy" className={css["hero-left-wrapper-btn-brown"]}>Zamów Teraz</Link>
+              <a
+                className={css["hero-left-wrapper-btn-white"]}
+                href="/katalog.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Zobacz Katalog</a>
             </div>
           </div>
           <Image

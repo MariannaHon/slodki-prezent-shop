@@ -24,19 +24,28 @@ const ONas = () => {
                       <Link className={css['about-content-bottom-btn']} href="/about">Czytaj więcej</Link>
                       <ul className={css['about-content-bottom-list']}>
                         <li className={css['about-content-bottom-list-item']}>
-                            <svg className={css['about-content-bottom-list-item-icon']}>
-                                <use href="/icons.svg#icon-fb"></use>
-                            </svg>
+                            <Link href="https://www.facebook.com/people/Slodki-Prezent/61582330476976/" target="_blank">
+                                <svg className={css['about-content-bottom-list-item-icon']}>
+                                    <use href="/icons.svg#icon-fb"></use>
+                                </svg>
+                            </Link>
+                            
                         </li>
                         <li className={css['about-content-bottom-list-item']}>
-                            <svg className={css['about-content-bottom-list-item-icon']}>
-                                <use href="/icons.svg#icon-inst"></use>
-                            </svg>
+                            <Link href="https://www.instagram.com/slodkiprezentpl/" target="_blank">
+                                <svg className={css['about-content-bottom-list-item-icon']}>
+                                    <use href="/icons.svg#icon-inst"></use>
+                                </svg>
+                            </Link>
+                            
                         </li>
                         <li className={css['about-content-bottom-list-item']}>
-                            <svg className={css['about-content-bottom-list-item-icon']}>
-                                <use href="/icons.svg#icon-tiktok"></use>
-                            </svg>
+                            <Link href="https://www.tiktok.com/@slodkiprezent.pl?_t=ZN-8zyhQUgNubO&_r=1" target="_blank">
+                                <svg className={css['about-content-bottom-list-item-icon']}>
+                                    <use href="/icons.svg#icon-tiktok"></use>
+                                </svg>
+                            </Link>
+                            
                         </li>
                       </ul>
                   </div>

@@ -29,7 +29,7 @@ const BlogCard: React.FC<BlogProps> = ({blog}) => {
               </div>
               <p className="card-title">{blog.title}</p>
               <p className={css['card-content-text']}>{blog.description}</p>
-              <Link className={css['card-content-btn']} href='/'>Czytaj więcej</Link>
+              <Link className={css['card-content-btn']} href={`/blog/${blog._id}`}>Czytaj więcej</Link>
           </div>
     </div>
   )

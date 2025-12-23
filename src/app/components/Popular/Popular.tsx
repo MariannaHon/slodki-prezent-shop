@@ -1,7 +1,7 @@
 'use client';
 
 import css from "./Popular.module.scss";
-import PopularCard from "../PopularCard/PopularCard";
+import ProductCard from "../ProductCard/ProductCard";
 
 import { Product } from '@/src/redux/products/slice';
 import { useSelector } from 'react-redux';
@@ -62,7 +62,7 @@ const Popular = () => {
                 {products.map((product: Product) => (
                   <SwiperSlide className={css.item} key={product._id}>
                     <Link href={`/boksy/${product._id}`}>
-                      <PopularCard product={product} />
+                      <ProductCard product={product} />
                   </Link>
                   </SwiperSlide>
                 ))}

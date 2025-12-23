@@ -17,8 +17,13 @@ import { selectProducts, selectError, selectLoading } from '@/src/redux/products
 import Link from "next/link";
 import { RootState } from "@/src/redux/store";
 
+import { changePage } from "@/src/redux/products/slice";
+import MAPPINGS from "@/src/utils/mappings.ts";
+
 
 export default function BoksyPage() {
+
+    const totalPages = useSelector((state: RootState) => state.products.totalPages);
 
     const filters = useSelector((state: RootState) => state.filters);
       const { page, perPage } = useSelector((state: RootState) => state.products);
@@ -29,9 +34,14 @@ export default function BoksyPage() {
           dispatch(fetchProducts({
         page,
         perPage,
-        dlaKogo: filters.dlaKogo,
-        swieta: filters.swieta,
-        cena: filters.cena,
+        dlaKogo: filters.dlaKogo ? MAPPINGS.dlaKogo[filters.dlaKogo as keyof typeof MAPPINGS.dlaKogo] : undefined,
+  swieta: filters.swieta ? MAPPINGS.swieta[filters.swieta as keyof typeof MAPPINGS.swieta] : undefined,
+  ...filters.cena
+    ? {
+        minPrice: MAPPINGS.cena[filters.cena as keyof typeof MAPPINGS.cena].min,
+        maxPrice: MAPPINGS.cena[filters.cena as keyof typeof MAPPINGS.cena].max
+      }
+    : {}
     }));
       }, [dispatch, page, perPage, filters]);
 
@@ -65,14 +75,44 @@ export default function BoksyPage() {
 
                 <div className={css['boksy-layout']}>
                     <Filters />
-                    <ul className={css['recommend-list']}>{products.map((product: Product) => (
-                        <li key={product._id}>
-                            <Link href={`/boksy/${product._id}`}>
-                                <ProductCard product={product} />
-                            </Link>
-                        </li>
-                ))}
-                    </ul>
+                    <div className={css['boksy-layout-products']}>
+                        <ul className={css['boksy-layout-products-list']}>{products.map((product: Product) => (
+                            <li key={product._id}>
+                                <Link href={`/boksy/${product._id}`}>
+                                    <ProductCard product={product} />
+                                </Link>
+                            </li>
+                        ))}
+                        </ul>
+                        <div className={css['boksy-layout-products-pagination']}>
+                            {page > 1 && (
+                                <button
+                                onClick={() => dispatch(changePage(page - 1))}
+                                className={css['boksy-layout-products-pagination-btn']}
+                                >
+                                &lt;
+                                </button>
+                            )}
+                            {Array.from({ length: totalPages }, (_, i) => (
+                                <button
+                                key={i}
+                                onClick={() => dispatch(changePage(i + 1))}
+                                className={`${css['boksy-layout-products-pagination-btn']} ${page === i + 1 ? css.active : ""}`}
+                                >
+                                {i + 1}
+                                </button>
+                            ))}
+
+                            {page < totalPages && (
+                                <button
+                                onClick={() => dispatch(changePage(page + 1))}
+                                className={css['boksy-layout-products-pagination-btn']}
+                                >
+                                &gt;
+                                </button>
+                            )}
+                        </div>
+                    </div>
                 </div>
                 <div className={css['boksy-bottom']}>
                     <div>

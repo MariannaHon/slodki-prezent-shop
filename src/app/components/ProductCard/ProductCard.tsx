@@ -10,16 +10,22 @@ const ProductCard: React.FC<ProductProps> = ({product}) =>  {
             priority
             className={css['card-img']}
                 src={product.photo}
-                width="382"
-                height="350"
+                width="276"
+                height="345"
                 alt="Sweet present"
             />
             <div className={css['card-content']}>
                 <h3 className="card-title">{product.name}</h3>
-                <p className={css['card-content-text']}>{product.description}</p>
                 <div className={css['card-content-buy']}>
-                    <p className={css['card-content-buy-price']}>{product.price} <span className={css['card-content-buy-price-netto']}>netto</span></p>
-                    <button className={css['card-content-buy-btn']} type="button">Do Koszyka</button>
+                    <div className={css['card-content-buy-wrapper']}>
+                        <p className={css['card-content-buy-wrapper-price']}>{product.price} zł</p>
+                        <p className={css['card-content-buy-wrapper-price-old']}>{product.oldPrice} zł</p>
+                    </div>
+                    <button className={css['card-content-buy-btn']} type="button">
+                        <svg className={css['card-content-buy-btn-icon']}>
+                            <use href="/icons.svg#icon-cart"></use>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>

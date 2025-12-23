@@ -23,21 +23,21 @@ const Footer = () => {
                         </ul>
                     <ul className={css['footer-top-about-social']}>
                         <li>
-                            <Link className={css['footer-top-about-social-link']} href="/">
+                            <Link className={css['footer-top-about-social-link']} href="https://www.facebook.com/people/Slodki-Prezent/61582330476976/" target="_blank">
                                 <svg className={css['footer-top-about-icon']}>
                                     <use href="/icons.svg#icon-fb"></use>
                                 </svg>
                             </Link>
                         </li>
                         <li>
-                            <Link className={css['footer-top-about-social-link']} href="/">
+                            <Link className={css['footer-top-about-social-link']} href="https://www.instagram.com/slodkiprezentpl/" target="_blank">
                                 <svg className={css['footer-top-about-icon']}>
                                     <use href="/icons.svg#icon-inst"></use>
                                 </svg>
                             </Link>
                         </li>
                         <li>
-                            <Link className={css['footer-top-about-social-link']} href="/">
+                            <Link className={css['footer-top-about-social-link']} href="https://www.tiktok.com/@slodkiprezent.pl?_t=ZN-8zyhQUgNubO&_r=1" target="_blank">
                                 <svg className={css['footer-top-about-icon']}>
                                         <use href="/icons.svg#icon-tiktok"></use>
                                 </svg>
@@ -50,15 +50,15 @@ const Footer = () => {
                                 <p className={css['footer-top-links-item-title']}>Szybkie linki</p>
                                 <ul className={css['footer-top-links-item-list']}>
                                     <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Boksy Prezentowe</Link></li>
+                                        <Link href="/boksy">Boksy Prezentowe</Link></li>
                                     <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">O Nas</Link></li>
+                                        <Link href="/about">O Nas</Link></li>
                                     <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Dostawa i Płatność</Link></li>
+                                        <Link href="/dostawa">Dostawa i Płatność</Link></li>
                                     <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Kontakt</Link></li>
+                                        <Link href="/kontakt">Kontakt</Link></li>
                                     <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Blog</Link></li>
+                                        <Link href="/blog">Blog</Link></li>
                                 </ul>
                         </li>
                         <li className={css['footer-top-links-item']}>
