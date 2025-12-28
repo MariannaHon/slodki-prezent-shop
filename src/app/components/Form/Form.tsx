@@ -1,8 +1,8 @@
 'use client';
 
 import * as Yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik";
+import { Formik, Form as FormikForm, Field, ErrorMessage, FormikHelpers } from "formik";
+
 import css from './Form.module.scss';
 import Link from 'next/link';
 
@@ -11,7 +11,7 @@ const Form = () => {
     const Validator = Yup.object().shape({
         name: Yup.string().min(3, "Za krótkie!").max(30, "Za długie!").required("Wymagane!"),
         email: Yup.string().email().required("Wymagane!"),
-        phone: Yup.number().min(9, "Za krótkie!").max(15, "Za długie!").required("Wymagane!"),
+        phone: Yup.string().min(9, "Za krótkie!").max(15, "Za długie!").required("Wymagane!"),
         comment: Yup.string(),
     })
 
@@ -22,9 +22,40 @@ const Form = () => {
         comment: "",
     };
 
-    const handleSubmit = () => {
-        // dispatch(addContact(values));
-        // actions.resetForm();
+    interface FormValues {
+        name: string;
+        email: string;
+        phone: string;
+        comment: string;
+    }
+
+    const handleSubmit = async (
+        values: FormValues,
+        { resetForm, setSubmitting, setStatus }: FormikHelpers<FormValues>
+        ) => {
+        try {
+            const res = await fetch('https://slodki-prezent-db.onrender.com/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+            setStatus({ success: true, message: data.message });
+            resetForm();
+            } else {
+            setStatus({ success: false, message: data.message });
+            }
+        } catch (err) {
+            setStatus({ success: false, message: 'Błąd wysyłki wiadomości' });
+            console.error(err);
+        } finally {
+            setSubmitting(false);
+        }
     };
 
 

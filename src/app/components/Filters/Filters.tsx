@@ -30,12 +30,12 @@ const Filters = () => {
         {["Dla Firm", "Dla Niej", "Dla Niego", "Dla Dzieci"].map((whoName) => (
           <div key={whoName}>
             <label>
-              <input
-                type="checkbox"
-                value={whoName}
-                checked={filters.dlaKogo === whoName}
-                onChange={(e) => handleCheckboxChange(e, "dlaKogo")}
-              />
+                <input
+                    type="checkbox"
+                    value={whoName}
+                    checked={filters.dlaKogo === whoName}
+                    onChange={(e) => handleCheckboxChange(e, "dlaKogo")}
+                />
               {whoName}
             </label>
           </div>
@@ -74,11 +74,11 @@ const Filters = () => {
       <fieldset className={css["sidebar-field"]}>
         <legend className={css["sidebar-field-legend"]}>Cena</legend>
         {[
-          "1zł — 70zł",
-          "70zł — 100zł",
-          "100zł — 200zł",
-          "200zł — 300zł",
-          "300zł — 500zł",
+          "1zl - 70zl",
+          "70zl - 100zl",
+          "100zl - 200zl",
+          "200zl - 300zl",
+          "300zl - 500zl",
         ].map((price) => (
           <div key={price}>
             <label>
@@ -93,15 +93,6 @@ const Filters = () => {
           </div>
         ))}
       </fieldset>
-
-      <button
-        onClick={() => {
-          dispatch(resetFilters());
-          dispatch(changePage(1));
-        }}
-      >
-        Resetuj filtry
-      </button>
     </aside>
   );
 };

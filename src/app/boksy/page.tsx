@@ -35,13 +35,8 @@ export default function BoksyPage() {
         page,
         perPage,
         dlaKogo: filters.dlaKogo ? MAPPINGS.dlaKogo[filters.dlaKogo as keyof typeof MAPPINGS.dlaKogo] : undefined,
-  swieta: filters.swieta ? MAPPINGS.swieta[filters.swieta as keyof typeof MAPPINGS.swieta] : undefined,
-  ...filters.cena
-    ? {
-        minPrice: MAPPINGS.cena[filters.cena as keyof typeof MAPPINGS.cena].min,
-        maxPrice: MAPPINGS.cena[filters.cena as keyof typeof MAPPINGS.cena].max
-      }
-    : {}
+        swieta: filters.swieta ? MAPPINGS.swieta[filters.swieta as keyof typeof MAPPINGS.swieta] : undefined,
+        cena: filters.cena ? filters.cena : undefined,
     }));
       }, [dispatch, page, perPage, filters]);
 
