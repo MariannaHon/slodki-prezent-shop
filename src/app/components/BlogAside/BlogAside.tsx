@@ -1,7 +1,10 @@
-import React from 'react'
+'use client';
+
 import css from './BlogAside.module.scss'
 import Link from 'next/link';
 import PopularBlogCard from '../PopularBlogCard/PopularBlogCard';
+
+
 
 const BlogAside = () => {
   return (

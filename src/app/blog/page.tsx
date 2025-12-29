@@ -4,7 +4,6 @@ import css from './page.module.scss'
 import BlogCard from '../components/BlogCard/BlogCard'
 import Link from 'next/link'
 import Skontaktuj from '../components/Skontaktuj/Skontaktuj'
-import PopularBlogCard from '../components/PopularBlogCard/PopularBlogCard'
 import BlogAside from '../components/BlogAside/BlogAside'
 
 import { useEffect } from 'react';
@@ -57,9 +56,11 @@ const BlogPage = () => {
         </ul>
         <div className={css['blog-content']}>
           <div className={css['blog-content-cards']}>
-            <ul className={css['recommend-list']}>{articles.map((blog: Blog) => (
-              <li key={blog._id}>
+            <ul className={css['blog-content-cards-list']}>{articles.map((blog: Blog) => (
+              <li className={css['blog-content-cards-list-item']} key={blog._id}>
+                <Link href={`/blog/${blog._id}`}>
                   <BlogCard blog={blog} />
+                </Link>
               </li>
               ))}
             </ul>

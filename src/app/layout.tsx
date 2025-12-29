@@ -51,6 +51,8 @@ export const metadata: Metadata = {
   description: "Sweet presents for every occasion",
 };
 
+import { Toaster } from 'react-hot-toast';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -64,6 +66,12 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
+          <Toaster
+          position="top-right"
+          toastOptions={{
+            duration: 3000,
+          }}
+        />
           {children}
           <Footer />
         </Providers>

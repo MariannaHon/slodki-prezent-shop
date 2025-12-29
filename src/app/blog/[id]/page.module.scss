@@ -1,0 +1,62 @@
+
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120rem;
+    margin: 0 auto;
+    padding: 8rem 0;
+    font-family: "Open Sans", sans-serif;
+
+    &-content {
+        display: flex;
+        gap: 2.4rem;
+        padding: 4rem 0;
+    }
+
+    &-left {
+
+        &-img {
+            width: 100%;
+            border-radius: 1.2rem;
+            object-fit: cover;
+        }
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 64.3rem;
+
+            &-top {
+                display: flex;
+                width: 75rem;
+                margin: 2rem 0;
+                align-items: center;
+
+                &-wrapper {
+                    padding: 0.5rem 1rem;
+                    border-radius: 1.8rem;
+                    background: $primary-300;
+                    margin-right: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    font-weight: 600;
+                    line-height: 150%;
+                    text-align: center;
+                    color: $primary-900;
+                    text-transform: capitalize;
+                }
+
+                &-date {
+                    color: $primary-600;
+                }
+            }
+        }
+    }
+}

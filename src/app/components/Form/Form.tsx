@@ -5,21 +5,54 @@ import { Formik, Form as FormikForm, Field, ErrorMessage, FormikHelpers } from "
 
 import css from './Form.module.scss';
 import Link from 'next/link';
+import toast from 'react-hot-toast';
 
 const Form = () => {
 
-    const Validator = Yup.object().shape({
-        name: Yup.string().min(3, "Za krótkie!").max(30, "Za długie!").required("Wymagane!"),
-        email: Yup.string().email().required("Wymagane!"),
-        phone: Yup.string().min(9, "Za krótkie!").max(15, "Za długie!").required("Wymagane!"),
-        comment: Yup.string(),
-    })
+    const Validator = Yup.object({
+        name: Yup.string()
+            .trim()
+            .matches(
+            /^[a-zA-ZąćęłńóśżźĄĆĘŁŃÓŚŻŹ\s-]+$/,
+            'Dozwolone są tylko litery'
+            )
+            .min(3, 'Minimum 3 znaki')
+            .max(50, 'Maksimum 50 znaków')
+            .required('Imię i nazwisko jest wymagane'),
+
+        email: Yup.string()
+            .trim()
+            .matches(
+            /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+            'Nieprawidłowy adres email'
+            )
+            .required('Email jest wymagany'),
+
+        phone: Yup.string()
+            .trim()
+            .matches(
+            /^(\+?\d{1,3})?\s?\d{9,12}$/,
+            'Nieprawidłowy numer telefonu'
+            )
+            .required('Numer telefonu jest wymagany'),
+
+        comment: Yup.string()
+            .trim()
+            .min(10, 'Wiadomość musi mieć min. 10 znaków')
+            .max(500, 'Maksimum 500 znaków')
+            .required('Wiadomość jest wymagana'),
+
+        privacy: Yup.boolean()
+            .required('Wymagana zgoda'),
+        });
+
 
     const initialValues = {
         name: "",
         email: "",
         phone: "",
         comment: "",
+        privacy: false,
     };
 
     interface FormValues {
@@ -27,32 +60,35 @@ const Form = () => {
         email: string;
         phone: string;
         comment: string;
+        privacy: boolean;
     }
 
     const handleSubmit = async (
         values: FormValues,
-        { resetForm, setSubmitting, setStatus }: FormikHelpers<FormValues>
+        { resetForm, setSubmitting }: FormikHelpers<FormValues>
         ) => {
         try {
             const res = await fetch('https://slodki-prezent-db.onrender.com/contact', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values),
             });
 
             const data = await res.json();
 
-            if (data.success) {
-            setStatus({ success: true, message: data.message });
-            resetForm();
-            } else {
-            setStatus({ success: false, message: data.message });
+            if (!res.ok || !data.success) {
+            throw new Error(data.message || 'Błąd wysyłki wiadomości');
             }
-        } catch (err) {
-            setStatus({ success: false, message: 'Błąd wysyłki wiadomości' });
-            console.error(err);
+
+            toast.success('Wiadomość została wysłana ✉️');
+            resetForm();
+        } catch (error) {
+            console.error(error);
+            toast.error(
+            error instanceof Error
+                ? error.message
+                : 'Nie udało się wysłać wiadomości'
+            );
         } finally {
             setSubmitting(false);
         }
@@ -65,7 +101,8 @@ const Form = () => {
        <Formik
                 initialValues={initialValues}
                 validationSchema={Validator}
-                onSubmit={handleSubmit}>
+              onSubmit={handleSubmit}>
+              {({ isSubmitting }) => (
                 <FormikForm>
                   <div className={css['form-label']}>
                       <label htmlFor="name" className='title-18'>Imię i nazwisko</label>
@@ -92,21 +129,29 @@ const Form = () => {
                         <ErrorMessage name="comment" component="span" />
                   </div>
                    <div className={css['form-bottom']}>
-                        <input className="visually-hidden" type="checkbox" id="user-privacy" name="user-privacy" value="true"
+                        <input className="visually-hidden" type="checkbox" id="privacy" name="privacy" value="true"
                             required />
-                        <label htmlFor="user-privacy" className={css["form-bottom-check"]}>
+                      <label htmlFor="privacy" className={css["form-bottom-check"]}>
                             <span className={css["form-bottom-check-span"]}>
                                 <svg width="16" height="16" className={css['form-bottom-check-span-icon']}>
                                     <use href="/icons.svg#icon-check"></use>
                                 </svg>
                             </span>
+                            
                             <span className={css['form-bottom-check-text']}>Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z <Link className={css['form-bottom-check-text-privacy']} href='/privacy'>polityką prywatności</Link>
                             </span>
-                        </label>
+                      </label>
+                      <ErrorMessage name="privacy" component="span" />
                     </div>
-                  
-                    <button className={css['form-btn']} type="submit">Wyślij Wiadomość</button>
-                </FormikForm>
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className={css['form-btn']}
+                        >
+                        {isSubmitting ? 'Wysyłanie...' : 'Wyślij wiadomość'}
+                    </button>
+
+                </FormikForm>)}
             </Formik>
     </div>
   )

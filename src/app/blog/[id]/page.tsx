@@ -43,34 +43,35 @@ const ArticlePage = () => {
 
 
   return (
-    <div>
-        <h1>Nasz Blog</h1>
-        <p>Odkryj najnowsze trendy w świecie prezentów korporacyjnych i dowiedz się, jak budować relacje biznesowe poprzez przemyślane upominki.</p>
-        <div>
-            <div>
-                <div>
-                    <Image
-                        priority
-                        src={article.photo}
-                        width="644"
-                        height="430"
-                        alt="Give a present"
-                    />
-                    <div className={css['card-content']}>
-                        <div className={css['card-content-top']}>
-                            <p className={css['card-content-top-tag']}>{article.category}</p>
-                            <p className={css['card-content-top-date']}>{article.date}</p>
+    <div className={css.article}>
+        <h1 className='main-title mb-24'>Nasz Blog</h1>
+        <p className='sub-title w625 mb-40'>Odkryj najnowsze trendy w świecie prezentów korporacyjnych i dowiedz się, jak budować relacje biznesowe poprzez przemyślane upominki.</p>
+        <div className={css['article-content']}>
+            <div className={css['article-left']}>
+                <Image
+                    priority
+                    src={article.photo}
+                    width="644"
+                    height="430"
+                    alt="Give a present"
+                    className={css['article-left-img']}
+                />
+                <div className={css['article-left-content']}>
+                    <div className={css['article-left-content-top']}>
+                        <span className={css['article-left-content-top-wrapper']}>
+                            <p>{article.category}</p>
+                        </span>
+                        <p className={css['article-left-content-top-date']}>{article.date}</p>
                         </div>
-                        <p className="card-title">{article.title}</p>
-                          <p className={css['card-content-text']}>{article.description}</p>
-                          <p>{article.text}</p>
-                    </div>
+                    <p className="section-title mb-24">{article.title}</p>
+                        <p className={css['article-left-content-text']}>{article.description}</p> <br/>
+                        <p>{article.text}</p>
                 </div>
-                <Skontaktuj/>
             </div>
             <BlogAside/>
+            
         </div>
-
+        <Skontaktuj/>
     </div>
   )
 }
