@@ -1,5 +1,5 @@
 @use 'typography';
-@use '../abstracts/variables';
+@use '../abstracts/variables' as *;
 
 
 *,
@@ -64,4 +64,32 @@ html {
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    align-items: center;
+
+    &-item {
+        color: $primary-300;
+        font-size: 1.5rem;
+        line-height: 1.5em;
+        text-transform: capitalize;
+        transition: color 250ms ease-in-out, text-decoration 250ms ease-in-out;
+        
+        &:hover,
+        &:active,
+        &:focus {
+            color: $primary-900;
+            text-decoration: underline;
+        }
+    }
+
+    &-active {
+        font-size: 1.5rem;
+        line-height: 1.5em;
+        color: $primary-700;
+    }
 }

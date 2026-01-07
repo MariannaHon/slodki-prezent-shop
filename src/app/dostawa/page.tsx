@@ -1,12 +1,37 @@
+'use client';
+
 
 import FAQ from "../components/FAQ/FAQ";
 import css from './page.module.scss';
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 const DeliveryPage = () => {
+    const path = usePathname();
   return (
-    <div className={css.delivery}>
-        <div className="container">
+    <main className={css.delivery}>
+        <section className="container">
+            <nav>
+                <ul className='nav'>
+                    <li
+                        className={
+                            path === '/' ? 'nav-active' : 'nav-item'
+                        }
+                    >
+                        <Link href="/">Strona główna</Link>
+                    </li>
+                    <span className={css.arrow}>&gt;</span>
+                    <li
+                        className={
+                            path === '/dostawa'
+                                ? 'nav-active'
+                                : 'nav-item'
+                        }
+                    >
+                    Dostawa
+                    </li>
+                </ul>
+            </nav>
             <h1 className='main-title mb-16'>Dostawa i Płatność</h1>
             <p className={css['delivery-sub']}>Sprawdź, jak szybko i wygodnie możesz otrzymać swoje zamówienie oraz jakie formy płatności oferujemy.</p>
             <div className={css['delivery-content']}>
@@ -187,8 +212,8 @@ const DeliveryPage = () => {
                 </div>
             </div>
             <FAQ/>
-        </div>
-    </div>
+        </section>
+    </main>
   )
 }
 

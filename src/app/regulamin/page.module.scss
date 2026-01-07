@@ -1,0 +1,43 @@
+
+@use '../sass/abstracts/variables' as *;
+@use '../sass/abstracts/mixins' as *;
+
+.reg {
+    display: flex;
+    flex-direction: column;
+    width: 120rem;
+    margin: 0 auto;
+    padding: 4rem 0;
+    font-family: "Open Sans", sans-serif;
+    color: $primary-900;
+
+    &-title {
+        font-size: 3.4rem;
+        font-weight: 700;
+        line-height: 1.4em;
+        color: #1e293b;
+        margin-bottom: 2rem;
+    }
+
+    &-paragraph {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.3em;
+        color: #1e293b;
+        margin-bottom: 2rem;
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        list-style: decimal;
+        padding-left: 1.5rem;
+
+        &-spec {
+            margin-bottom: 0;
+            list-style: decimal;
+            padding-left: 1.5rem;
+        }
+    }
+}

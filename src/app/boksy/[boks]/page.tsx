@@ -56,8 +56,39 @@ const ProductPage: React.FC = () => {
 
 
   return (
-    <div className="container">
-          <div className={css.product}>
+    <main className="container">
+        <section className={css.product}>
+            <nav>
+                <ul className='nav'>
+                    <li
+                        className={
+                            pathname === '/' ? 'nav-active' : 'nav-item'
+                        }
+                    >
+                        <Link href="/">Strona główna</Link>
+                    </li>
+                    <span className={css.arrow}>&gt;</span>
+                    <li
+                        className={
+                            pathname === '/boksy'
+                                ? 'nav-active'
+                                : 'nav-item'
+                        }
+                    >
+                    <Link href='/boksy'>Category</Link>
+                    </li>
+                    <span className={css.arrow}>&gt;</span>
+                    <li
+                        className={
+                            pathname === `/boksy/${product._id}`
+                                ? 'nav-active'
+                                : 'nav-item'
+                        }
+                    >
+                    {product.name}
+                    </li>
+                </ul>
+            </nav>
               <div className={css['product-top']}>
                     <div className={css['product-top-left']}>
                         <Image
@@ -157,8 +188,8 @@ const ProductPage: React.FC = () => {
               <Popular />
               <Skontaktuj />
               <FAQ/>
-        </div>
-    </div>
+        </section>
+    </main>
   )
 }
 

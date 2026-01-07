@@ -14,7 +14,10 @@ import { useAppDispatch } from "../../../redux/hooks";
 
 import { fetchArticles } from '../../../redux/blog/operations';
 
+import Link from 'next/link';
+
 const ArticlePage = () => {
+    const path = usePathname();
 
     const dispatch = useAppDispatch();
     
@@ -43,10 +46,41 @@ const ArticlePage = () => {
 
 
   return (
-    <div className={css.article}>
+    <main className={css.article}>
+        <nav>
+            <ul className='nav'>
+                <li
+                    className={
+                        path === '/' ? 'nav-active' : 'nav-item'
+                    }
+                >
+                    <Link href="/">Strona główna</Link>
+                </li>
+                <span className={css.arrow}>&gt;</span>
+                <li
+                    className={
+                        path === '/blog'
+                            ? 'nav-active'
+                            : 'nav-item'
+                    }
+                >
+                <Link href='/blog'>{article.category}</Link>
+                </li>
+                <span className={css.arrow}>&gt;</span>
+                <li
+                    className={
+                        path === `/blog/${article._id}`
+                            ? 'nav-active'
+                            : 'nav-item'
+                    }
+                >
+                {article.title}
+                </li>
+            </ul>
+        </nav>
         <h1 className='main-title mb-24'>Nasz Blog</h1>
         <p className='sub-title w625 mb-40'>Odkryj najnowsze trendy w świecie prezentów korporacyjnych i dowiedz się, jak budować relacje biznesowe poprzez przemyślane upominki.</p>
-        <div className={css['article-content']}>
+        <section className={css['article-content']}>
             <div className={css['article-left']}>
                 <Image
                     priority
@@ -70,9 +104,9 @@ const ArticlePage = () => {
             </div>
             <BlogAside/>
             
-        </div>
+        </section>
         <Skontaktuj/>
-    </div>
+    </main>
   )
 }
 

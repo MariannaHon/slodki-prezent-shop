@@ -17,7 +17,10 @@ import { selectArticle, selectError, selectLoading } from '@/src/redux/blog/sele
 
 import { Blog } from '@/src/redux/blog/slice'
 
+import { usePathname } from 'next/navigation';
+
 const BlogPage = () => {
+  const path = usePathname();
 
    const dispatch = useAppDispatch();
   
@@ -43,8 +46,29 @@ const BlogPage = () => {
     }
 
   return (
-    <div className={css.blog}>
-      <div className='container'>
+    <main className={css.blog}>
+      <section className='container'>
+        <nav>
+          <ul className='nav'>
+            <li
+                className={
+                    path === '/' ? 'nav-active' : 'nav-item'
+                }
+            >
+                <Link href="/">Strona główna</Link>
+            </li>
+            <span className={css.arrow}>&gt;</span>
+            <li
+                className={
+                    path === '/blog'
+                        ? 'nav-active'
+                        : 'nav-item'
+                }
+            >
+            Blog
+            </li>
+          </ul>
+        </nav>
         <h1 className='main-title mb-16'>Nasz Blog</h1>
         <p className='sub-title mb-40'>Odkryj najnowsze trendy w świecie prezentów korporacyjnych i dowiedz się, jak budować relacje biznesowe poprzez przemyślane upominki.</p>
         <ul className={css['blog-list']}>
@@ -70,8 +94,8 @@ const BlogPage = () => {
         </div>
         
         <Skontaktuj/>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
 

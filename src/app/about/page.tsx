@@ -1,30 +1,60 @@
+'use client';
+
 import css from './page.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { usePathname } from 'next/navigation';
+
 const AboutPage = () => {
+    const path = usePathname();
+
   return (
-    <div className={css.about}>
-        <h1 className='main-title mb-16'>Nasza Historia Słodkich Prezentów</h1>
-        <p className={css['about-paragraph']}>Odkryj magię tworzenia wyjątkowych zestawów słodyczy, które sprawiają radość od ponad dekady. Każdy prezent to nasza pasja i dbałość o szczegóły.</p>
-        <div className={css['about-top']}>
-            <Image
-                  priority
-                  className={css['about-top-img']}
-                src="/images/presents.png"
-                width="588"
-                height="384"
-                alt="Create a present"
-              />
-              <div className={css['about-top-right']}>
-                  <h2 className='section-title mb-24'>O Nas</h2>
-                  <p className={css['about-top-right-bold']}>Spraw, aby pracownicy byli szczęśliwi — a oni w zamian uszczęśliwią Ciebie!</p>
-                  <p>A pomożemy Ci w tym my — firma <span className={css['about-top-right-bold']}>Słodki Prezent</span>, specjalista w tworzeniu słodkich prezentów dla dorosłych i dzieci. Współpracujemy z klientami korporacyjnymi w całej Polsce, przygotowując prezenty dla firm i organizacji na najważniejsze święta oraz urodziny firm. <br /><br />
-                <span className={css['about-top-right-bold']}>Mikołajki, Boże Narodzenie, Sylwestr, Walentynki, Dzień Kobiet, Dzień Mężczyzn, Wielkanoc</span>
- — w te dni szczególnie miło jest dzielić się radością i wręczać prezenty. Skontaktuj się z nami, a Twój prezent mile zaskoczy współpracowników i podwładnych. </p>
-              </div>
-          </div>
-          <div className={css['about-presents']}>
+    <main className={css.about}>
+        <section className='container'>
+            <nav>
+                <ul className='nav'>
+                    <li
+                        className={
+                            path === '/' ? 'nav-active' : 'nav-item'
+                        }
+                    >
+                        <Link href="/">Strona główna</Link>
+                    </li>
+                    <span className={css.arrow}>&gt;</span>
+                    <li
+                        className={
+                            path === '/about'
+                                ? 'nav-active'
+                                : 'nav-item'
+                        }
+                    >
+                    O nas
+                    </li>
+                </ul>
+            </nav>
+            <h1 className='main-title mb-16'>Nasza Historia Słodkich Prezentów</h1>
+            <p className={css['about-paragraph']}>Odkryj magię tworzenia wyjątkowych zestawów słodyczy, które sprawiają radość od ponad dekady. Każdy prezent to nasza pasja i dbałość o szczegóły.</p>
+            <div className={css['about-top']}>
+                <Image
+                    priority
+                    className={css['about-top-img']}
+                    src="/images/presents.png"
+                    width="588"
+                    height="384"
+                    alt="Create a present"
+                />
+                <div className={css['about-top-right']}>
+                    <h2 className='section-title mb-24'>O Nas</h2>
+                    <p className={css['about-top-right-bold']}>Spraw, aby pracownicy byli szczęśliwi — a oni w zamian uszczęśliwią Ciebie!</p>
+                    <p>A pomożemy Ci w tym my — firma <span className={css['about-top-right-bold']}>Słodki Prezent</span>, specjalista w tworzeniu słodkich prezentów dla dorosłych i dzieci. Współpracujemy z klientami korporacyjnymi w całej Polsce, przygotowując prezenty dla firm i organizacji na najważniejsze święta oraz urodziny firm. <br /><br />
+                    <span className={css['about-top-right-bold']}>Mikołajki, Boże Narodzenie, Sylwestr, Walentynki, Dzień Kobiet, Dzień Mężczyzn, Wielkanoc</span>
+    — w te dni szczególnie miło jest dzielić się radością i wręczać prezenty. Skontaktuj się z nami, a Twój prezent mile zaskoczy współpracowników i podwładnych. </p>
+                </div>
+            </div>
+        </section>
+        
+          <section className={css['about-presents']}>
               <h2 className='section-title mb-16'>Prezenty, które robią wrażenie</h2>
               <p className={css['about-presents-paragraph']}>Stylowe, dopracowane i pełne smaku – znajdziesz u nas zestawy na każdą okazję biznesową i prywatną.</p>
               <ul className={css['about-presents-list']}>
@@ -51,8 +81,8 @@ dla dzieci</h4>
                 </li>
               </ul>
               <p className={css['about-presents-sentence']}>Dostarczamy nasze słodycze w każdy zakątek Polski. Z opcjami dostawy możesz zapoznać się <Link className={css['about-presents-sentence-link']} href='/'>tutaj.</Link></p>
-          </div>
-          <div className={css['about-zalety']}>
+          </section>
+          <section className={css['about-zalety']}>
               <div className={css['about-zalety-wrapper']}>
                   <h2 className='section-title'>Nasze zalety</h2>
                   <div className={css['about-zalety-text']}>
@@ -107,8 +137,8 @@ dla dzieci</h4>
                     <p>gotowe zestawy od 300g do 5 kg oraz możliwość personalizacji składu i projektu</p>
                   </li>
               </ul>
-          </div>
-          <div className={css['about-achivments']}>
+          </section>
+          <section className={css['about-achivments']}>
               <h2 className='section-title mb-16'>Nasze osiągnięcia w liczbach</h2>
               <p className={css['about-achivments-text']}>Zaufało nam ponad tysiąc firm w całej Polsce. Sprawdź, dlaczego jesteśmy liderem w branży prezentów korporacyjnych.</p>
               <ul className={css['about-achivments-list']}>
@@ -129,8 +159,8 @@ dla dzieci</h4>
                     <p className={css['about-achivments-list-text']}>Satysfakcja klientów</p>
                 </li>
               </ul>
-          </div>
-    </div>
+          </section>
+    </main>
   )
 }
 

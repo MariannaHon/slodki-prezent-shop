@@ -5,11 +5,34 @@ import css from './page.module.scss';
 import Form from '../components/Form/Form';
 import Link from 'next/link';
 import FAQ from '../components/FAQ/FAQ';
+import { usePathname } from 'next/navigation';
 
 const ContactPage = () => {
+  const path = usePathname();
   return (
-    <div className={css.contact}>
-      <div className='container'>
+    <main className={css.contact}>
+      <section className='container'>
+        <nav>
+          <ul className='nav'>
+            <li
+                className={
+                    path === '/' ? 'nav-active' : 'nav-item'
+                }
+            >
+                <Link href="/">Strona główna</Link>
+            </li>
+            <span className={css.arrow}>&gt;</span>
+            <li
+                className={
+                    path === '/kontakt'
+                        ? 'nav-active'
+                        : 'nav-item'
+                }
+            >
+            Kontakt
+            </li>
+          </ul>
+        </nav>
         <h1 className='main-title mb-16'>Skontaktuj się z nami</h1>
         <p className='sub-title w766 mb-40'>Jesteśmy tutaj, aby pomóc Ci w wyborze idealnych słodyczy i prezentów. Napisz do nas lub zadzwoń - chętnie odpowiemy na wszystkie pytania!</p>
         <ul className={css['contact-list']}>
@@ -96,8 +119,8 @@ const ContactPage = () => {
         </ul>
         </div>
         <FAQ/>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
 

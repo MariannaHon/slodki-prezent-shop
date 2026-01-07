@@ -104,8 +104,7 @@ const Footer = () => {
                 <p className={css['footer-bottom-text']}>© 2025 Słodki prezent. Wszelkie prawa zastrzeżone.</p>
                 <ul className={css['footer-bottom-links']}>
                     <li><Link href="/regulamin">Regulamin</Link></li>
-                    <li><Link href="/polityka-prywatnosci">Polityka prywatności</Link></li>
-                    <li><Link href="/cookies">Cookies</Link></li>
+                    <li><Link href="/policy">Polityka prywatności</Link></li>
                 </ul>
             </div>
           </div>

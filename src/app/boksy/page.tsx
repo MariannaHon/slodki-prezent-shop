@@ -20,8 +20,11 @@ import { RootState } from "@/src/redux/store";
 import { changePage } from "@/src/redux/products/slice";
 import MAPPINGS from "@/src/utils/mappings";
 
+import { usePathname } from 'next/navigation';
+
 
 export default function BoksyPage() {
+    const path = usePathname();
 
     const totalPages = useSelector((state: RootState) => state.products.totalPages);
 
@@ -58,8 +61,29 @@ export default function BoksyPage() {
 
 
     return (
-        <div className="container">
-            <div className={css.boksy}>
+        <main className="container">
+            <section className={css.boksy}>
+                <nav>
+                    <ul className='nav'>
+                        <li
+                            className={
+                                path === '/' ? 'nav-active' : 'nav-item'
+                            }
+                        >
+                            <Link href="/">Strona główna</Link>
+                        </li>
+                        <span className={css.arrow}>&gt;</span>
+                        <li
+                            className={
+                                path === '/boksy'
+                                    ? 'nav-active'
+                                    : 'nav-item'
+                            }
+                        >
+                        Boksy Prezentowe
+                        </li>
+                    </ul>
+                </nav>
                 <div className={css['boksy-top']}>
                     <h1 className='main-title mb-16'>Odkryj Nasze Prezenty</h1>
                     <p className={css['boksy-top-paragraph']}>
@@ -126,8 +150,8 @@ export default function BoksyPage() {
                         </p>
                     </div>
                 </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
   );
 };

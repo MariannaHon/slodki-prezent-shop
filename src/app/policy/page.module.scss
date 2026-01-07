@@ -1,0 +1,78 @@
+@use '../sass/abstracts/variables' as *;
+@use '../sass/abstracts/mixins' as *;
+
+.policy {
+    display: flex;
+    flex-direction: column;
+    width: 120rem;
+    margin: 0 auto;
+    padding: 4rem 0;
+    font-family: "Open Sans", sans-serif;
+    color: $primary-900;
+
+    &-title {
+        font-size: 3.4rem;
+        font-weight: 700;
+        line-height: 1.4em;
+        color: #1e293b;
+        margin-bottom: 2rem;
+    }
+
+    &-spis {
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.3em;
+        color: #1e293b;
+        margin-bottom: 2.4rem;
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2.4rem;
+            list-style: decimal;
+            padding-left: 2rem;
+            gap: 0.3rem;
+            color: #046bd2;
+        }
+    }
+
+    &-paragraph {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.3em;
+        color: #1e293b;
+        margin-bottom: 2rem;
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        list-style: decimal;
+        padding-left: 2rem;
+        gap: 2.4rem;
+
+        a {
+            color: #046bd2;
+        }
+
+        &-spec {
+            margin-top: 2.4rem;
+            margin-bottom: 0;
+            list-style: decimal;
+            padding-left: 1.5rem;
+        }
+
+        &-table {
+            border: solid 1px $neutral-300;
+            margin-top: 2.4rem;
+
+            th,
+            td {
+                padding: 1.2rem 1.6rem;
+                border: solid 1px $neutral-300;
+            }
+        }
+    }
+}
+
