@@ -21,7 +21,7 @@ const Recommendations = () => {
     if (!products.length) return <p>No products found</p>;
 
   return (
-    <div className={css.recommend}>
+    <section className={css.recommend}>
         <div className="container">
             <h2 className="section-title">Nasze Rekomendacje</h2>
         <p className={css['recommend-text']}>Wybierz kategorię produktów dopasowaną do Twoich potrzeb</p>
@@ -39,7 +39,7 @@ const Recommendations = () => {
                   className={css['recommend-btn']}
                 >Zobacz więcej</Link>
         </div>
-    </div>
+    </section>
   )
 }
 

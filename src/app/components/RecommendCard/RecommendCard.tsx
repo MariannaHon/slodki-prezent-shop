@@ -2,13 +2,32 @@
 import Image from "next/image";
 import css from './RecommendCard.module.scss';
 
+import { addItem } from '@/src/redux/cart/slice';
+import toast from 'react-hot-toast';
+import { useAppDispatch } from "@/src/redux/hooks";
+
 import { Product } from "@/src/redux/products/slice";
 
 export interface ProductProps {
   product: Product;
 }
 
-const RecommendCard: React.FC<ProductProps> = ({product}) => {
+const RecommendCard: React.FC<ProductProps> = ({ product }) => {
+
+  const dispatch = useAppDispatch();
+  
+  const handleAddToCart = () => {
+        dispatch(
+            addItem({
+                id: product._id,
+                name: product.name,
+                price: product.price,
+                quantity: 1,
+                photo: product.photo,
+            })
+        );
+        toast.success('Product successfully added to cart!');
+  };
 
   return (
     <div className={css.card}>
@@ -25,7 +44,7 @@ const RecommendCard: React.FC<ProductProps> = ({product}) => {
               <p className={css['card-content-text']}>{product.description}</p>
               <div className={css['card-content-buy']}>
                   <p className={css['card-content-buy-price']}>{product.price} <span className={css['card-content-buy-price-netto']}>netto</span></p>
-                  <button className={css['card-content-buy-btn']} type="button">Do Koszyka</button>
+                  <button className={css['card-content-buy-btn']} type="button" onClick={handleAddToCart}>Do Koszyka</button>
               </div>
           </div>
     </div>
