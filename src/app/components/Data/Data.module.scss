@@ -4,128 +4,94 @@
 .form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 1px solid $primary-300;
-    border-radius: 1.6rem;
-    padding: 1.6rem 3rem;
-    width: 61rem;
+    width: 67.2rem;
     font-family: "Open Sans", sans-serif;
+    padding: 3rem 3.6rem;
+    background-color: transparent;
+    border-radius: 1.2rem;
+    border: solid 1px $primary-300;
 
     &-title {
         font-weight: 600;
         font-size: 2rem;
         line-height: 150%;
         color: $primary-900;
-        display: flex;
-        align-self: self-start;
         margin-bottom: 2.4rem;
+    }
+
+    &-top {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 3rem;
+        width: 100%;
     }
 
     &-label {
         display: flex;
         flex-direction: column;
-        margin-bottom: 1.6rem;
+        width: 100%;
 
-        &-field {
-            border: 1px solid $primary-300;
-            border-radius: .8rem;
-            padding: .8rem 2rem;
-            // width: 42.2rem;
-            // height: 4.0rem;
-
-            font-family: "Open Sans", sans-serif;
+        label {
             font-weight: 500;
             font-size: 1.6rem;
-            line-height: 150%;
-            color: $primary-700;
+            color: $primary-900;
+            margin-bottom: 0.8rem;
         }
 
-        &-comment {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            flex-direction: column;
-
+        input,
+        textarea {
+            width: 100%;
             border: 1px solid $primary-300;
-            border-radius: .8rem;
-            padding: 2rem;
-            width: 42.2rem;
-            height: 14.6rem;
-            background: $secondary-50;
-
+            border-radius: 0.8rem;
+            padding: 1rem 1.6rem;
             font-family: "Open Sans", sans-serif;
-            font-weight: 500;
             font-size: 1.6rem;
-            line-height: 150%;
             color: $primary-700;
+            background-color: #fff;
+            transition: border-color 0.2s ease-in-out;
+
+            &:focus {
+                outline: none;
+                border-color: $primary-600;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 12rem;
+        }
+
+        span {
+            margin-top: 0.4rem;
+            color: red;
+            font-size: 1.4rem;
         }
     }
 
-    &-bottom {
+    &-checkbox {
         display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.2rem;
+        margin-bottom: 1.6rem;
 
-        &-check {
-            position: relative;
-            display: flex;
-            align-items: baseline;
+        input {
+            width: 1.8rem;
+            height: 1.8rem;
+            accent-color: $primary-800;
+        }
+
+        label {
             font-size: 1.6rem;
-            line-height: 150%;
             color: $primary-900;
-            margin-bottom: 2.4rem;
-
-            &-span {
-                position: absolute;
-                top: 0.4rem;
-                left: 0;
-                display: flex;
-                flex-direction: column;
-                flex-shrink: 0;
-                justify-content: center;
-                align-items: center;
-                width: 1.8rem;
-                height: 1.8rem;
-                border-radius: .3rem;
-                border: 2px solid $primary-800;
-                transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-                background-color: $secondary-50;
-
-                &-icon {
-                    width: 1.6rem;
-                    height: 1.6rem;
-
-                    opacity: 0;
-                    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-                    ;
-                }
-            }
-
-            &-text {
-                padding-left: 3.6rem;
-
-                &-privacy {
-                    font-weight: 600;
-                    text-decoration: underline;
-                    text-decoration-skip-ink: none;
-                }
-            }
+            cursor: pointer;
         }
     }
 
     &-btn {
         display: flex;
         @include btnBrown(22rem);
-        margin: 0 auto;
+        margin-top: 3rem;
+        align-self: flex-start;
     }
-}
-
-
-
-input:checked+label.form-bottom-check .form-bottom-check-span {
-    background: $primary-900;
-    border: none;
-}
-
-input:checked+label.form-bottom-check .form-bottom-check-span-icon {
-    opacity: 1;
-    fill: #fff;
 }

@@ -1,110 +1,162 @@
 'use client';
 
-import * as Yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik";
-import css from './Data.module.scss'
-import Link from 'next/link';
+import css from './Data.module.scss';
+import { useFormikContext } from 'formik';
+import { CheckoutFormValues } from '../../checkout/page';
 
 const Data = () => {
-  const Validator = Yup.object().shape({
-        name: Yup.string().min(3, "Za krótkie!").max(30, "Za długie!").required("Wymagane!"),
-        surname: Yup.string().min(3, "Za krótkie!").max(30, "Za długie!").required("Wymagane!"),
-        email: Yup.string().email().required("Wymagane!"),
-        phone: Yup.number().min(9, "Za krótkie!").max(15, "Za długie!").required("Wymagane!"),
-        street: Yup.string().min(3, "Za krótkie!").max(30, "Za długie!").required("Wymagane!"),
-        index: Yup.string().min(6, "Za krótkie!").max(6, "Za długie!").required("Wymagane!"),
-        city: Yup.string().min(3, "Za krótkie!").max(15, "Za długie!").required("Wymagane!"),
-    })
-
-    const initialValues = {
-        name: "",
-        surname: "",
-        email: "",
-        phone: "",
-        country: "Polska",
-        street: "",
-        index: "",
-        city: ""
-    };
-
-    const handleSubmit = () => {
-        // dispatch(addContact(values));
-        // actions.resetForm();
-    };
-
+  const { values, errors, touched, handleChange, handleBlur } =
+    useFormikContext<CheckoutFormValues>();
 
   return (
-      <div className={css.form}>
-          <h3 className={css['form-title']}>Dane rozliczeniowe</h3>
-       <Formik
-                initialValues={initialValues}
-                validationSchema={Validator}
-                onSubmit={handleSubmit}>
-                <FormikForm>
-                    <div className={css['form-label']}>
-                        <label htmlFor="name" className='title-16'>Imię*</label>
-                        <Field className={css['form-label-field']} type="text" name="name" ></Field>
+    <div className={css.form}>
+      <h3 className="form-title">Dane rozliczeniowe</h3>
 
-                        <ErrorMessage name="name" component="span" />
-                    </div>
-                    <div className={css['form-label']}>
-                        <label htmlFor="surname" className='title-16'>Nazwisko*</label>
-                        <Field className={css['form-label-field']} type="text" name="surname" ></Field>
+      <div>
+        <div className={css['form-top']}>
+          <div className={css['form-label']}>
+            <label htmlFor="name" className="title-16">
+              Imię*
+            </label>
+            <input
+              className={css['form-label-input']}
+              type="text"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {touched.name && errors.name && <span>{errors.name}</span>}
+          </div>
 
-                        <ErrorMessage name="surname" component="span" />
-                    </div>
-                    <div className={css['form-label']}>
-                        <label htmlFor="email" className='title-16'>Email*</label>
-                        <Field className={css['form-label-field']} type="text" name="email"></Field>
+          <div className={css['form-label']}>
+            <label htmlFor="surname" className="title-16">
+              Nazwisko*
+            </label>
+            <input
+              className={css['form-label-input']}
+              type="text"
+              name="surname"
+              value={values.surname}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {touched.surname && errors.surname && <span>{errors.surname}</span>}
+          </div>
 
-                        <ErrorMessage name="email" component="span" />
-                    </div>
-                    <div className={css['form-label']}>
-                        <label htmlFor="phone" className='title-16'>Numer telefonu*</label>
-                        <Field className={css['form-label-field']} type="text" name="phone"></Field>
+          <div className={css['form-label']}>
+            <label htmlFor="email" className="title-16">
+              Email*
+            </label>
+            <input
+              className={css['form-label-input']}
+              type="text"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {touched.email && errors.email && <span>{errors.email}</span>}
+          </div>
 
-                        <ErrorMessage name="phone" component="span" />
-                  </div>
-                  <h3 className={css['form-title']}>Dane adresowe</h3>
-                    <div className={css['form-label']}>
-                        <label htmlFor="country" className='title-16'>Kraj*</label>
-                        <Field className={css['form-label-comment']} type="text" name="country"></Field>
+          <div className={css['form-label']}>
+            <label htmlFor="phone" className="title-16">
+              Numer telefonu*
+            </label>
+            <input
+              className={css['form-label-input']}
+              type="text"
+              name="phone"
+              value={values.phone}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {touched.phone && errors.phone && <span>{errors.phone}</span>}
+          </div>
+        </div>
 
-                        <ErrorMessage name="country" component="span" />
-                  </div>
-                  <div className={css['form-label']}>
-                        <label htmlFor="street" className='title-16'>Ulica i nr domu*</label>
-                        <Field className={css['form-label-comment']} type="text" name="street"></Field>
+        <h3 className={css['form-title']}>Dane adresowe</h3>
 
-                        <ErrorMessage name="street" component="span" />
-                  </div>
-                  <div className={css['form-label']}>
-                        <label htmlFor="index" className='title-16'>Kod pocztowy*</label>
-                        <Field className={css['form-label-comment']} type="text" name="index"></Field>
+        <div className={css['form-label']}>
+          <label htmlFor="country" className="title-16">
+            Kraj*
+          </label>
+          <input
+            className={css['form-label-comment']}
+            type="text"
+            name="country"
+            value={values.country}
+            disabled
+          />
+          {touched.country && errors.country && <span>{errors.country}</span>}
+        </div>
 
-                        <ErrorMessage name="index" component="span" />
-                  </div>
-                  <div className={css['form-label']}>
-                        <label htmlFor="city" className='title-16'>Miasto*</label>
-                        <Field className={css['form-label-comment']} type="text" name="city"></Field>
+        <div className={css['form-label']}>
+          <label htmlFor="street" className="title-16">
+            Ulica i nr domu*
+          </label>
+          <input
+            className={css['form-label-comment']}
+            type="text"
+            name="street"
+            value={values.street}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {touched.street && errors.street && <span>{errors.street}</span>}
+        </div>
 
-                        <ErrorMessage name="city" component="span" />
-                  </div>
-                    <div>
-                        <input type="checkbox" />
-                        <p>Dane do Faktury</p>
-                  </div>
-                    <div className={css['form-label']}>
-                        <label htmlFor="comment" className='title-16'>Uwagi do zamówienia (ocjonalnie)</label>
-                        <Field className={css['form-label-comment']} as="textarea" name="comment"></Field>
+        <div className={css['form-label']}>
+          <label htmlFor="index" className="title-16">
+            Kod pocztowy*
+          </label>
+          <input
+            className={css['form-label-comment']}
+            type="text"
+            name="index"
+            value={values.index}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {touched.index && errors.index && <span>{errors.index}</span>}
+        </div>
 
-                        <ErrorMessage name="comment" component="span" />
-                    </div>
-                </FormikForm>
-            </Formik>
+        <div className={css['form-label']}>
+          <label htmlFor="city" className="title-16">
+            Miasto*
+          </label>
+          <input
+            className={css['form-label-comment']}
+            type="text"
+            name="city"
+            value={values.city}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {touched.city && errors.city && <span>{errors.city}</span>}
+        </div>
+
+        <div className={css['form-checkbox']}>
+          <input type="checkbox" id="invoice" />
+          <label htmlFor="invoice">Dane do Faktury</label>
+        </div>
+
+        <div className={css['form-label']}>
+          <label htmlFor="comment" className="title-16">
+            Uwagi do zamówienia (opcjonalnie)
+          </label>
+          <textarea
+            className={css['form-label-comment']}
+            name="comment"
+            value={values.comment}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {touched.comment && errors.comment && <span>{errors.comment}</span>}
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Data
+export default Data;

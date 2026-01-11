@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link"
 import Image from "next/image"
-// import RecommendCard from "../components/RecommendCard/RecommendCard"
 import css from './page.module.scss'
 import CartCard from "../components/CartCard/CartCard"
 

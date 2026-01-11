@@ -108,6 +108,14 @@ body {
     padding-left: 3rem;
 }
 
+.form-title {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 150%;
+    color: $primary-900;
+    margin-bottom: 2.4rem;
+}
+
 .faq-title:hover,
 .faq-title:focus,
 .faq-title:active {

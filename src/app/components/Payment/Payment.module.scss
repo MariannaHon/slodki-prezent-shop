@@ -1,0 +1,50 @@
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 50.4rem;
+    font-family: "Open Sans", sans-serif;
+    color: $primary-900;
+    font-weight: 600;
+    padding: 3rem 3.6rem;
+    background-color: transparent;
+    border-radius: 1.2rem;
+    border: solid 1px $primary-300;
+
+    &-payment {
+        display: flex;
+        background-color: $secondary-50;
+        width: 100%;
+        padding: 1.6rem 6rem 1.6rem 1.5rem;
+        border-radius: 1.2rem;
+        border: solid 1px $primary-300;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+
+        &-options {
+            display: flex;
+            flex-direction: column;
+
+            &-option {
+                font-weight: 400;
+
+                input {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+
+    &-text {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: $primary-700;
+        margin-bottom: 1.5rem;
+    }
+
+    &-btn {
+        @include btnBrown(100%)
+    }
+}
