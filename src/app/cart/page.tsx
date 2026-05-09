@@ -23,23 +23,6 @@ const CartPage = () => {
       dispatch(clearCart());
   };
 
-  // if (cartItems.length === 0) {
-  //     return (
-  //         <section className={css.box}>
-  //             <Image
-  //                 className={css.img}
-  //                 src="/img/empty.png"
-  //                 alt="Empty cart"
-  //                 width={387}
-  //                 height={286}
-  //             />
-  //             <h2 className="small-title">Your cart is empty</h2>
-  //             <Link href="/" className={css.start}>
-  //                 Start Shopping
-  //             </Link>
-  //         </section>
-  //     );
-  // }
 
   return (
     <main className={css.cart}>

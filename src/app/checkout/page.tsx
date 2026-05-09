@@ -4,9 +4,11 @@ import Data from "../components/Data/Data"
 import Order from "../components/Order/Order"
 import Payment from "../components/Payment/Payment"
 
+import { useSelector } from "react-redux";
+import { selectCart } from "@/src/redux/cart/selectors";
+
 import * as Yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik";
+import { Formik, Form as FormikForm} from "formik";
 import css from './page.module.scss'
 
 export interface CheckoutFormValues {
@@ -24,7 +26,7 @@ export interface CheckoutFormValues {
 }
 
 
-const checkoutPage = () => {
+const CheckoutPage = () => {
 
   const Validator = Yup.object().shape({
         name: Yup.string().min(3, "Za krótkie!").max(30, "Za długie!").required("Wymagane!"),
@@ -47,10 +49,32 @@ const checkoutPage = () => {
       city: ""
   };
 
-  const handleSubmit = () => {
-      // dispatch(addContact(values));
-      // actions.resetForm();
-  };
+  const cartItems = useSelector(selectCart);
+
+
+  const handleSubmit = async (values: CheckoutFormValues) => {
+  const res = await fetch("https://slodki-prezent-db.onrender.com/checkout", {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify({
+      products: cartItems.map((item) => ({
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+
+      customer: values,
+    }),
+  });
+
+  const data = await res.json();
+
+  window.location.href = data.url;
+};
 
   return (
     <main className={css.checkout}>
@@ -73,4 +97,4 @@ const checkoutPage = () => {
   )
 }
 
-export default checkoutPage
+export default CheckoutPage
