@@ -31,7 +31,7 @@ const CartCard: React.FC<ItemProps> = ({ item }) => {
 
 
   return (
-    <div className={css.card}>
+      <div className={css.card}>
       <Image
             priority
             className={css['card-img']}
