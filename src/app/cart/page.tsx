@@ -50,7 +50,7 @@ const CartPage = () => {
             <ul className={css['cart-top-right-list']}>
               <li className={css['cart-top-right-list-item']}>
                 <p className={css['cart-top-right-list-item-name']}>Produkty:</p>
-                <p className={css['cart-top-right-list-item-name-price']}>{cartAmount}</p>
+                <p className={css['cart-top-right-list-item-name-price']}>{cartAmount.toFixed(2)} zł</p>
               </li>
               <li className={css['cart-top-right-list-item']}>
                 <p className={css['cart-top-right-list-item-name']}>Rabat:</p>

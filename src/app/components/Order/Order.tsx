@@ -34,8 +34,8 @@ const Order = () => {
         <ul className={css['form-list']}>
             {cartItems.map((item: cartItem) => (
                 <li className={css['form-line']} key={item.id}>
-                    <p>{item.name} x {item.quantity}</p>
-                    <p>{item.price * item.quantity} zł</p>
+                    <p>{item.name} x {item.quantity.toFixed(2)}</p>
+                    <p>{(item.price * item.quantity).toFixed(2)} zł</p>
                 </li>
             ))}
         </ul>
@@ -62,11 +62,11 @@ const Order = () => {
         </div>
         <div className={css['form-line']}>
             <p>VAT</p>
-            <p>{cartAmount * 0.23} zł</p>
+            <p>{(cartAmount * 0.23).toFixed(2)} zł</p>
         </div>
         <div className={css['form-line']}>
             <p>Razem do zapłaty</p>
-            <p>{total} zł</p>
+            <p>{total.toFixed(2)} zł</p>
         </div>  
     </div>
   )
