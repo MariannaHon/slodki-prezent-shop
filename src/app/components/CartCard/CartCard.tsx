@@ -5,7 +5,7 @@ import css from './CartCard.module.scss'
 
 import { cartItem } from "@/src/redux/cart/slice";
 import { useAppDispatch } from "@/src/redux/hooks";
-import { increaseItemQuantity, decreaseItemQuantity } from "@/src/redux/cart/slice";
+import { increaseItemQuantity, decreaseItemQuantity, removeItem } from "@/src/redux/cart/slice";
 
 interface ItemProps {
     item: cartItem;
@@ -29,6 +29,12 @@ const CartCard: React.FC<ItemProps> = ({ item }) => {
         }
     };
 
+    const handleRemove = () => {
+    if (item.id) {
+        dispatch(removeItem(item.id));
+    }
+};
+
 
   return (
       <div className={css.card}>
@@ -43,11 +49,11 @@ const CartCard: React.FC<ItemProps> = ({ item }) => {
           
         <div className={css['card-content']}>
             <h4 className="card-title mb-24">{item.name}</h4>
-            <div className={css['card-content-close']}>
+            <button className={css['card-content-close']} type="button" onClick={handleRemove}>
                 <svg className={css['card-content-close-icon']}>
                     <use href="/icons.svg#icon-close"></use>
                 </svg>
-            </div>  
+            </button>  
             <ul className={css['card-content-list']}>
                 <li className={css['card-content-list-item']}>
                     <p className="cart-title mb-8">Cena:</p>

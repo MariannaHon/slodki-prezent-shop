@@ -13,29 +13,29 @@
     border-radius: 1.2rem;
     border: solid 1px $primary-300;
 
-    &-payment {
-        display: flex;
-        background-color: $secondary-50;
-        width: 100%;
-        padding: 1.6rem 6rem 1.6rem 1.5rem;
-        border-radius: 1.2rem;
-        border: solid 1px $primary-300;
-        justify-content: space-between;
-        margin-bottom: 4rem;
+    // &-payment {
+    //     display: flex;
+    //     background-color: $secondary-50;
+    //     width: 100%;
+    //     padding: 1.6rem 6rem 1.6rem 1.5rem;
+    //     border-radius: 1.2rem;
+    //     border: solid 1px $primary-300;
+    //     justify-content: space-between;
+    //     margin-bottom: 4rem;
 
-        &-options {
-            display: flex;
-            flex-direction: column;
+    //     &-options {
+    //         display: flex;
+    //         flex-direction: column;
 
-            &-option {
-                font-weight: 400;
+    //         &-option {
+    //             font-weight: 400;
 
-                input {
-                    margin-right: 1rem;
-                }
-            }
-        }
-    }
+    //             input {
+    //                 margin-right: 1rem;
+    //             }
+    //         }
+    //     }
+    // }
 
     &-text {
         font-size: 1.2rem;

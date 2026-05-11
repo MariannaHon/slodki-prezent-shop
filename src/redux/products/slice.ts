@@ -65,6 +65,9 @@ const productsSlice = createSlice({
         changeLimit(state, action: PayloadAction<number>) {
             state.perPage = action.payload;
         },
+        resetPage(state) {
+            state.page = 1;
+        }
     },
     extraReducers: builder =>
         builder
@@ -89,5 +92,5 @@ const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { changePage, changeLimit } = productsSlice.actions;
+export const { changePage, changeLimit, resetPage } = productsSlice.actions;
 

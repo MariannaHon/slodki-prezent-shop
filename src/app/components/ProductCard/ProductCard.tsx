@@ -7,7 +7,8 @@ import { addItem } from '@/src/redux/cart/slice';
 import toast from 'react-hot-toast';
 import { useAppDispatch } from "@/src/redux/hooks";
 
-import { Product } from "@/src/redux/products/slice";
+import { resetPage } from "@/src/redux/products/slice";
+import { resetFilters } from "@/src/redux/filters/slice";
 
 
 
@@ -16,16 +17,20 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
     const dispatch = useAppDispatch();
   
     const handleAddToCart = () => {
-            dispatch(
-                addItem({
-                    id: product._id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: 1,
-                    photo: product.photo,
-                })
-            );
-            toast.success('Product successfully added to cart!');
+        dispatch(
+            addItem({
+                id: product._id,
+                name: product.name,
+                price: product.price,
+                quantity: 1,
+                photo: product.photo,
+            })
+        );
+        
+        dispatch(resetFilters());
+        dispatch(resetPage());
+        
+        toast.success('Product successfully added to cart!');
     };
 
   return (

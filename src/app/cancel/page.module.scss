@@ -1,0 +1,34 @@
+@use '../sass/abstracts/variables' as *;
+@use '../sass/base/typography.scss' as *;
+
+.cancel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem;
+
+    &-text {
+        font-size: 2rem;
+        margin: 6rem 0 2rem 0;
+        color: $primary-900;
+    }
+
+    &-list {
+        margin-bottom: 6rem;
+        list-style-type: circle;
+        padding-left: 2rem;
+        font-size: 2rem;
+        color: $primary-900;
+        font-weight: 500;
+
+        &-item {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &-again {
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+    }
+}
