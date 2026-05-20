@@ -80,7 +80,7 @@ dla dzieci</h4>
                     <p>Czekoladki, cukierki i inne przysmaki idealne na firmowe święta.</p>
                 </li>
               </ul>
-              <p className={css['about-presents-sentence']}>Dostarczamy nasze słodycze w każdy zakątek Polski. Z opcjami dostawy możesz zapoznać się <Link className={css['about-presents-sentence-link']} href='/'>tutaj.</Link></p>
+              <p className={css['about-presents-sentence']}>Dostarczamy nasze słodycze w każdy zakątek Polski. Z opcjami dostawy możesz zapoznać się <Link className={css['about-presents-sentence-link']} href='/dostawa'>tutaj.</Link></p>
           </section>
           <section className={css['about-zalety']}>
               <div className={css['about-zalety-wrapper']}>

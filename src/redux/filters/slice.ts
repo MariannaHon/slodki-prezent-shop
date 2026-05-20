@@ -4,12 +4,14 @@ interface FiltersState {
     dlaKogo: string;
     swieta: string;
     cena: string;
+    name: string;
 }
 
 const initialState: FiltersState = {
     dlaKogo: '',
     swieta: '',
     cena: '',
+    name: '',
 };
 
 const filtersSlice = createSlice({
@@ -23,9 +25,13 @@ const filtersSlice = createSlice({
             state.dlaKogo = '';
             state.swieta = '';
             state.cena = '';
-        }
+            state.name = '';
+        },
+        search(state, action: PayloadAction<string>) {
+            state.name = action.payload;
+        },
     },
 });
 
-export const { setFilter, resetFilters } = filtersSlice.actions;
+export const { setFilter, resetFilters, search } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

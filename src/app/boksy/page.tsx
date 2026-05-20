@@ -13,7 +13,7 @@ import { fetchProducts } from '../../redux/products/operations';
 import { Product } from '@/src/redux/products/slice';
 import { useSelector } from 'react-redux';
 
-import { selectProducts, selectError, selectLoading } from '@/src/redux/products/selectors';
+import { selectError, selectLoading, selectFilteredProducts } from '@/src/redux/products/selectors';
 import Link from "next/link";
 import { RootState } from "@/src/redux/store";
 
@@ -43,7 +43,7 @@ export default function BoksyPage() {
     }));
       }, [dispatch, page, perPage, filters]);
 
-    const products = useSelector(selectProducts);
+    const products = useSelector(selectFilteredProducts);
     const error = useSelector(selectError);
     const isLoading = useSelector(selectLoading);
 

@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import css from './Header.module.scss';
 
+import Search from '../Search/Search';
+
 const Header = () => {
   return (
     <header className={css.header}>
@@ -33,15 +35,7 @@ const Header = () => {
               </ul>
               <ul className={css['header-nav-search']}>
                   <li>
-                      <div className={css.box}>
-                          <input className={css['header-nav-search-input']} type="text" placeholder='Szukaj...' />
-                          <svg className={css.icon}
-                            width="24"
-                            height="24"
-                            >
-                                <use href="/icons.svg#icon-search"></use>
-                            </svg>
-                      </div>
+                      <Search />
                 </li>
               <li>
                 <Link href='/cart'>
