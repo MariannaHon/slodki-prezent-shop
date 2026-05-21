@@ -1,0 +1,17 @@
+@use './sass/abstracts/variables' as *;
+@use './sass/base/typography.scss' as *;
+
+
+.lost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 0;
+
+    &-nav {
+        margin: 2rem 0 6rem 0;
+        align-self: flex-start;
+        padding: 0 10rem;
+    }
+}

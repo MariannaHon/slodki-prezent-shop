@@ -6,13 +6,11 @@ import { usePathname } from 'next/navigation';
 import Skontaktuj from "../components/Skontaktuj/Skontaktuj";
 
 import css from "./page.module.scss";
-import { useAppDispatch } from "@/src/redux/hooks";
 
 const CancelPage = () => {
 
   const path = usePathname();
-  
-  const dispatch = useAppDispatch();
+
 
   return (
     <main className={css.cancel}>

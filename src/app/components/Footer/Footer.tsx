@@ -1,7 +1,34 @@
+"use client";
+
 import css from "./Footer.module.scss";
 import Link from 'next/link';
 
+import { useRouter } from 'next/navigation';
+
+import { useAppDispatch } from '@/src/redux/hooks';
+
+import {
+    setFilter,
+    resetFilters,
+} from '@/src/redux/filters/slice';
+
 const Footer = () => {
+    const dispatch = useAppDispatch();
+    const router = useRouter();
+    
+    const handleCategory = (category: string) => {
+
+    dispatch(resetFilters());
+
+    dispatch(
+        setFilter({
+            dlaKogo: category,
+        })
+    );
+
+    router.push('/boksy');
+};
+
   return (
       <footer className={css.footer}>
           <div className="container">
@@ -64,15 +91,40 @@ const Footer = () => {
                         <li className={css['footer-top-links-item']}>
                                 <p className={css['footer-top-links-item-title']}>Kategorie</p>
                                 <ul className={css['footer-top-links-item-list']}>
-                                    <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Dla Niego</Link></li>
-                                    <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Dla Niej</Link></li>
-                                    <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Dla Dzieci</Link></li>
-                                    <li className={css['footer-top-links-item-list-item']}>
-                                        <Link href="/">Dla Firm</Link></li>
-                                </ul>
+                                <li className={css['footer-top-links-item-list-item']}>
+                                    <button
+                                        className={css['footer-top-links-item-list-button']}
+                                        type="button"
+                                        onClick={() => handleCategory('Dla Niego')}>
+                                        Dla Niego
+                                    </button>
+                                </li>
+                              
+                                <li className={css['footer-top-links-item-list-item']}>
+                                    <button
+                                        className={css['footer-top-links-item-list-button']}
+                                        type="button"
+                                        onClick={() => handleCategory('Dla Niej')}>
+                                        Dla Niej
+                                    </button>
+                                </li>
+                                <li className={css['footer-top-links-item-list-item']}>
+                                    <button
+                                        className={css['footer-top-links-item-list-button']}
+                                        type="button"
+                                        onClick={() => handleCategory('Dla Dzieci')}>
+                                        Dla Dzieci
+                                    </button>
+                                </li>
+                                <li className={css['footer-top-links-item-list-item']}>
+                                    <button
+                                        className={css['footer-top-links-item-list-button']}
+                                        type="button"
+                                        onClick={() => handleCategory('Dla Firm')}>
+                                        Dla Firm
+                                    </button>
+                                </li>
+                            </ul>
                         </li>
                         <li className={css['footer-top-links-item']}>
                                 <p className={css['footer-top-links-item-title']}>Kontakt</p>
