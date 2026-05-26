@@ -11,16 +11,14 @@ export interface Blog {
     category: string;
     popular: boolean;
     date: string;
+    type: string[];
 }
 
 interface ArticleState {
     items: Blog[];
     loading: boolean;
     error: string | null;
-    // page: number;
-    // limit: number;
-    // order: 'high' | 'low' | null;
-    // view: 'grid' | 'list';
+    filter: string;
 }
 
 function handleLoading(state: ArticleState) {
@@ -37,28 +35,16 @@ const initialState: ArticleState = {
     items: [],
     loading: false,
     error: null,
-    // page: 1,
-    // limit: 10,
-    // order: null,
-    // view: 'list',
+    filter: "all",
 };
 
 const blogSlice = createSlice({
     name: 'blog',
     initialState: initialState,
     reducers: {
-        // changePage(state, action: PayloadAction<number>) {
-        //     state.page = action.payload;
-        // },
-        // changeLimit(state, action: PayloadAction<number>) {
-        //     state.limit = action.payload;
-        // },
-        // changeSortOrder(state, action: PayloadAction<'high' | 'low' | null>) {
-        //     state.order = action.payload;
-        // },
-        // changeViewMode(state, action: PayloadAction<'grid' | 'list'>) {
-        //     state.view = action.payload;
-        // },
+        changeFilter(state, action: PayloadAction<string>) {
+        state.filter = action.payload;
+    },
     },
     extraReducers: builder =>
         builder
@@ -78,3 +64,4 @@ const blogSlice = createSlice({
 });
 
 export const blogReducer = blogSlice.reducer;
+export const { changeFilter } = blogSlice.actions;

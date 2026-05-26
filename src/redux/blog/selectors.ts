@@ -11,3 +11,23 @@ export const selectAllProducts = createSelector(
   [selectArticle],
   (products) => (Array.isArray(products) ? products : [])
 );
+
+export const selectFilter = (state: RootState) =>
+  state.blog.filter;
+
+export const selectFilteredArticles = createSelector(
+    [
+        selectArticle,
+        selectFilter,
+    ],
+    (articles, filter) => {
+
+        if (filter === 'all') {
+            return articles;
+        }
+
+        return articles.filter(article =>
+            article.type.includes(filter)
+        );
+    }
+);

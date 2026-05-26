@@ -13,7 +13,9 @@ import { fetchArticles } from '@/src/redux/blog/operations';
 
 import { useSelector } from 'react-redux';
 
-import { selectArticle, selectError, selectLoading } from '@/src/redux/blog/selectors';
+import { selectArticle, selectError, selectLoading, selectFilteredArticles } from '@/src/redux/blog/selectors';
+
+import { changeFilter } from '@/src/redux/blog/slice';
 
 import { Blog } from '@/src/redux/blog/slice'
 
@@ -29,7 +31,7 @@ const BlogPage = () => {
     }, [dispatch]);
   
   
-  const articles = useSelector(selectArticle);
+  const articles = useSelector(selectFilteredArticles);
     const error = useSelector(selectError);
     const isLoading = useSelector(selectLoading);
   
@@ -72,11 +74,31 @@ const BlogPage = () => {
         <h1 className='main-title mb-16'>Nasz Blog</h1>
         <p className='sub-title mb-40'>Odkryj najnowsze trendy w świecie prezentów korporacyjnych i dowiedz się, jak budować relacje biznesowe poprzez przemyślane upominki.</p>
         <ul className={css['blog-list']}>
-          <li className={css['blog-list-item']}>Wszystkie (32)</li>
-          <li className={css['blog-list-item']}>Okazje (6)</li>
-          <li className={css['blog-list-item']}>Porady prezentowe (12)</li>
-          <li className={css['blog-list-item']}>Przepisy i inspiracje (9)</li>
-          <li className={css['blog-list-item']}>Zakulisowo (5)</li>
+          <li className={css['blog-list-item']}>
+            <button onClick={() => dispatch(changeFilter('all'))}>
+              Wszystkie (32)
+            </button>
+          </li>
+          <li className={css['blog-list-item']}>
+            <button onClick={() => dispatch(changeFilter('events'))}>
+              Okazje (6)
+            </button>
+          </li>
+          <li className={css['blog-list-item']}>
+            <button onClick={() => dispatch(changeFilter('advices'))}>
+              Porady prezentowe (12)
+            </button>
+          </li>
+          <li className={css['blog-list-item']}>
+            <button onClick={() => dispatch(changeFilter('inspirations'))}>
+              Przepisy i inspiracje (9)
+            </button>
+          </li>
+          <li className={css['blog-list-item']}>
+            <button onClick={() => dispatch(changeFilter('insites'))}>
+              Zakulisowo (5)
+            </button>
+          </li>
         </ul>
         <div className={css['blog-content']}>
           <div className={css['blog-content-cards']}>
