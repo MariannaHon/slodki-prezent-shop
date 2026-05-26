@@ -13,7 +13,7 @@ import { fetchArticles } from '@/src/redux/blog/operations';
 
 import { useSelector } from 'react-redux';
 
-import { selectArticle, selectError, selectLoading, selectFilteredArticles } from '@/src/redux/blog/selectors';
+import { selectError, selectLoading, selectFilteredArticles, selectFilter, selectArticle } from '@/src/redux/blog/selectors';
 
 import { changeFilter } from '@/src/redux/blog/slice';
 
@@ -32,8 +32,10 @@ const BlogPage = () => {
   
   
   const articles = useSelector(selectFilteredArticles);
-    const error = useSelector(selectError);
-    const isLoading = useSelector(selectLoading);
+  const allArticles = useSelector(selectArticle);
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectLoading);
+  const activeFilter = useSelector(selectFilter);
   
     if (isLoading) {
         return <p>Page is loading</p>;
@@ -45,7 +47,18 @@ const BlogPage = () => {
   
     if (!articles) {
         return <p>No articles found</p>;
+  }
+  
+  const getCount = (type: string) => {
+
+    if (type === 'all') {
+        return allArticles.length;
     }
+
+    return allArticles.filter(article =>
+        article.type.includes(type)
+    ).length;
+  };
 
   return (
     <main className={css.blog}>
@@ -74,29 +87,39 @@ const BlogPage = () => {
         <h1 className='main-title mb-16'>Nasz Blog</h1>
         <p className='sub-title mb-40'>Odkryj najnowsze trendy w świecie prezentów korporacyjnych i dowiedz się, jak budować relacje biznesowe poprzez przemyślane upominki.</p>
         <ul className={css['blog-list']}>
-          <li className={css['blog-list-item']}>
-            <button onClick={() => dispatch(changeFilter('all'))}>
-              Wszystkie (32)
+          <li className={`${css['blog-list-item']}
+                          ${activeFilter === 'all' ? css.active : ''}
+                        `}>
+            <button className={css['blog-list-item-btn']} onClick={() => dispatch(changeFilter('all'))}>
+              Wszystkie ({getCount('all')})
             </button>
           </li>
-          <li className={css['blog-list-item']}>
-            <button onClick={() => dispatch(changeFilter('events'))}>
-              Okazje (6)
+          <li className={`${css['blog-list-item']}
+                          ${activeFilter === 'events' ? css.active : ''}
+                        `}>
+            <button className={css['blog-list-item-btn']} onClick={() => dispatch(changeFilter('events'))}>
+              Okazje ({getCount('events')})
             </button>
           </li>
-          <li className={css['blog-list-item']}>
-            <button onClick={() => dispatch(changeFilter('advices'))}>
-              Porady prezentowe (12)
+          <li className={`${css['blog-list-item']}
+                          ${activeFilter === 'advices' ? css.active : ''}
+                        `}>
+            <button className={css['blog-list-item-btn']} onClick={() => dispatch(changeFilter('advices'))}>
+              Porady prezentowe ({getCount('advices')})
             </button>
           </li>
-          <li className={css['blog-list-item']}>
-            <button onClick={() => dispatch(changeFilter('inspirations'))}>
-              Przepisy i inspiracje (9)
+          <li className={`${css['blog-list-item']}
+                          ${activeFilter === 'inspirations' ? css.active : ''}
+                        `}>
+            <button className={css['blog-list-item-btn']} onClick={() => dispatch(changeFilter('inspirations'))}>
+              Przepisy i inspiracje ({getCount('inspirations')})
             </button>
           </li>
-          <li className={css['blog-list-item']}>
-            <button onClick={() => dispatch(changeFilter('insites'))}>
-              Zakulisowo (5)
+          <li className={`${css['blog-list-item']}
+                          ${activeFilter === 'insites' ? css.active : ''}
+                        `}>
+            <button className={css['blog-list-item-btn']} onClick={() => dispatch(changeFilter('insites'))}>
+              Zakulisowo ({getCount('insites')})
             </button>
           </li>
         </ul>
