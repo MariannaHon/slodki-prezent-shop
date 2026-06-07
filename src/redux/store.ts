@@ -3,6 +3,7 @@ import { blogReducer } from './blog/slice';
 import cartReducer from './cart/slice';
 import { filtersReducer } from './filters/slice';
 import { holidaysReducer } from './holidays/slice';
+import { newsletterReducer } from './newsletter/slice';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import {
     persistReducer,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
     products: productsReducer,
     blog: blogReducer,
     filters: filtersReducer,
-    holidays: holidaysReducer
+    holidays: holidaysReducer,
+    newsletter: newsletterReducer,
 });
 
 export const store = configureStore({

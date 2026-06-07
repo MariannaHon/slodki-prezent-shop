@@ -6,8 +6,12 @@ import PopularBlogCard from '../PopularBlogCard/PopularBlogCard';
 
 import { Blog } from '@/src/redux/blog/slice';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 import { selectArticle, selectError, selectLoading } from '@/src/redux/blog/selectors';
+import { subscribeNewsletter } from '@/src/redux/newsletter/operations';
+import { useAppDispatch } from '@/src/redux/hooks';
+import { toast } from 'react-hot-toast';
 
 
 const BlogAside = () => {
@@ -16,17 +20,40 @@ const BlogAside = () => {
   const error = useSelector(selectError);
   const isLoading = useSelector(selectLoading);
 
-  if (isLoading) {
-      return <p>Page is loading</p>;
-  }
+  const dispatch = useAppDispatch();
 
-  if (error) {
-      return <p>Error: {error}</p>;
-  }
+    const [email, setEmail] = useState('');
 
-  if (!articles) {
-      return <p>No articles found</p>;
-  }
+    if (isLoading) {
+        return <p>Page is loading</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+
+    if (!articles) {
+        return <p>No articles found</p>;
+    }
+
+    const handleSubscribe = async () => {
+        if (!email.trim()) {
+            toast.error('Wpisz adres e-mail');
+            return;
+        }
+
+        try {
+            await dispatch(subscribeNewsletter(email)).unwrap();
+
+            toast.success(
+            'Dziękujemy za zapisanie się do newslettera!'
+            );
+
+            setEmail('');
+        } catch (error) {
+            toast.error(String(error));
+        }
+    };
 
   return (
     <aside className={css.right}>
@@ -70,8 +97,9 @@ const BlogAside = () => {
             <section className={css['right-sign']}>
               <h4 className='blog-title'>Zapisz się do naszego newslettera</h4>
               <p className={css['right-sign-text']}>Bądź na bieżąco z nowościami i wyjątkowymi ofertami.</p>
-              <input className={css['right-sign-input']} type="text" placeholder='Wpisz swój adres e-mail' />
-              <button className={css['right-sign-btn']} type='button'>Zapisz się</button>
+              <input className={css['right-sign-input']} type="email" placeholder='Wpisz swój adres e-mail' value={email}
+  onChange={(e) => setEmail(e.target.value)} />
+              <button className={css['right-sign-btn']} type='button' onClick={handleSubscribe}>Zapisz się</button>
             </section>
           </aside>
   )
