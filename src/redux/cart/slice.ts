@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface cartItem {
-    id?: string;
+    _id?: string;
     quantity: number;
     photo: string;
     name: string;
@@ -27,7 +27,7 @@ const cartSlice = createSlice({
         addItem(state, action: PayloadAction<cartItem>) {
             const newItem = action.payload;
             const existingItem = state.items.find(
-                item => item.id === newItem.id
+                item => item._id === newItem._id
             );
 
             state.totalQuantity++;
@@ -35,7 +35,7 @@ const cartSlice = createSlice({
 
             if (!existingItem) {
                 state.items.push({
-                    id: newItem.id,
+                    _id: newItem._id,
                     price: newItem.price,
                     quantity: 1,
                     name: newItem.name,
@@ -53,7 +53,7 @@ const cartSlice = createSlice({
         },
         increaseItemQuantity(state, action: PayloadAction<string>) {
             const id = action.payload;
-            const item = state.items.find(item => item.id === id);
+            const item = state.items.find(item => item._id === id);
             if (item) {
                 item.quantity++;
                 state.totalQuantity++;
@@ -62,27 +62,27 @@ const cartSlice = createSlice({
         },
         decreaseItemQuantity(state, action: PayloadAction<string>) {
             const id = action.payload;
-            const item = state.items.find(item => item.id === id);
+            const item = state.items.find(item => item._id === id);
             if (item) {
                 item.quantity--;
                 state.totalQuantity--;
                 state.totalAmount -= item.price;
                 if (item.quantity === 0) {
-                    state.items = state.items.filter(item => item.id !== id);
+                    state.items = state.items.filter(item => item._id !== id);
                 }
             }
         },
         removeItem(state, action: PayloadAction<string>) {
             const id = action.payload;
 
-            const item = state.items.find(item => item.id === id);
+            const item = state.items.find(item => item._id === id);
 
             if (item) {
                 state.totalQuantity -= item.quantity;
 
                 state.totalAmount -= item.price * item.quantity;
 
-                state.items = state.items.filter(item => item.id !== id);
+                state.items = state.items.filter(item => item._id !== id);
             }
         },
     },

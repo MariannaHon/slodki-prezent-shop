@@ -52,28 +52,48 @@ const CheckoutPage = () => {
   const cartItems = useSelector(selectCart);
 
 
-  const handleSubmit = async (values: CheckoutFormValues) => {
-  const res = await fetch("https://slodki-prezent-db.onrender.com/checkout", {
-    method: "POST",
+const handleSubmit = async (values: CheckoutFormValues) => {
+  try {
+    const res = await fetch("https://slodki-prezent-db.onrender.com/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-    headers: {
-      "Content-Type": "application/json",
-    },
+      body: JSON.stringify({
+        products: cartItems.map((item) => ({
+          productId: item._id,
+          name: item.name,
+          price: Number(item.price),
+          quantity: Number(item.quantity),
+        })),
 
-    body: JSON.stringify({
-      products: cartItems.map((item) => ({
-        name: item.name,
-        price: item.price,
-        quantity: item.quantity,
-      })),
+        customer: {
+          name: `${values.name} ${values.surname}`,
+          email: values.email,
+          phone: values.phone,
+          country: values.country,
+          street: values.street,
+          index: values.index,
+          city: values.city,
+          address: `${values.street}, ${values.index} ${values.city}, ${values.country}`,
+          comment: values.comment || "",
+          delivery: values.delivery || "",
+          payment: values.payment || "",
+        },
+      }),
+    });
 
-      customer: values,
-    }),
-  });
+    const data = await res.json();
 
-  const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message || "Nie udało się utworzyć płatności");
+    }
 
-  window.location.href = data.url;
+    window.location.href = data.url;
+  } catch (error) {
+    console.error("Checkout error:", error);
+  }
 };
 
   return (
