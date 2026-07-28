@@ -50,10 +50,10 @@ const BlogPage = () => {
               {isBlog ? (
           <>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={1}
                 spaceBetween={24}
                 modules={[Navigation, Scrollbar, Keyboard, Mousewheel, Pagination]}
-                navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+                // navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
                 keyboard={{ enabled: true }}
                 mousewheel={true}
                 scrollbar={{ draggable: true }}
@@ -67,8 +67,8 @@ const BlogPage = () => {
                     </Link>
                   </SwiperSlide>
                 ))}
-                <div className="swiper-button-prev"></div>
-                <div className="swiper-button-next"></div>
+                {/* <div className="swiper-button-prev"></div>
+                <div className="swiper-button-next"></div> */}
             </Swiper>
             <style jsx global>{`
               .swiper-pagination-bullet {

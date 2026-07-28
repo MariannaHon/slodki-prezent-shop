@@ -1,18 +1,55 @@
 @use '../../sass/abstracts/variables' as *;
 
 
+// .recommend {
+//     padding: 8rem 0;
+//     width: 120rem;
+//     margin: 0 auto;
+
+//     &-text {
+//         margin: 0.8rem 0 4rem 0;
+//     }
+
+//     &-list {
+//         display: flex;
+//         width: 120rem;
+//         gap: 2.4rem;
+//         flex-wrap: wrap;
+//         align-items: center;
+//         margin: 3.2rem 0;
+//     }
+
+//     &-btn {
+//         width: 14rem;
+//         height: 3.0rem;
+//         border: transparent;
+//         background-color: transparent;
+
+//         font-weight: 600;
+//         font-size: 2rem;
+//         line-height: 150%;
+//         text-align: center;
+//         color: $primary-500;
+//     }
+// }
+
 .recommend {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
     padding: 8rem 0;
-    width: 120rem;
+    max-width: 39rem;
     margin: 0 auto;
 
     &-text {
-        margin: 0.8rem 0 4rem 0;
+        margin: 0.8rem 0;
     }
 
     &-list {
         display: flex;
-        width: 120rem;
+        flex-direction: column;
+        max-width: 37rem;
         gap: 2.4rem;
         flex-wrap: wrap;
         align-items: center;

@@ -37,7 +37,7 @@ const Holidays = () => {
       <div className='container'>
         <>
           <Swiper
-              slidesPerView={4}
+              slidesPerView={1}
               modules={[Scrollbar, Keyboard, Mousewheel, Pagination]}
               keyboard={{ enabled: true }}
               mousewheel={true}
@@ -46,7 +46,7 @@ const Holidays = () => {
               className={css.holidays}
           >
               {holidays.map((holiday: Holiday) => (
-                <SwiperSlide className={css.item} key={holiday._id}>
+                <SwiperSlide key={holiday._id}>
                   <Ocassion holiday={holiday} />
                 </SwiperSlide>
               ))}

@@ -1,5 +1,28 @@
 @use '../../sass/abstracts/variables' as *;
 
+// .blog {
+//     padding: 8rem 0;
+//     width: 100%;
+//     background-color: $secondary-100;
+
+//     &-text {
+//         margin: 1.4rem 0 4rem;
+//         width: 63.3rem;
+//         display: flex;
+//         text-align: center;
+//     }
+
+//     &-list {
+//         display: flex;
+//         width: 120rem;
+//         height: 55rem;
+
+//         &-item {
+//             height: 47.3rem;
+//         }
+//     }
+// }
+
 .blog {
     padding: 8rem 0;
     width: 100%;
@@ -7,14 +30,16 @@
 
     &-text {
         margin: 1.4rem 0 4rem;
-        width: 63.3rem;
+        max-width: 35.8rem;
         display: flex;
+        flex-direction: column;
         text-align: center;
     }
 
     &-list {
         display: flex;
-        width: 120rem;
+        flex-direction: column;
+        max-width: 37rem;
         height: 55rem;
 
         &-item {

@@ -25,7 +25,7 @@ const Clients = () => {
             <h2 className="section-title">Prezenty, które doceniły topowe firmy</h2>
             <>
                 <Swiper
-                    slidesPerView={4}
+                    slidesPerView={3}
                     modules={[Scrollbar, Keyboard, Mousewheel, Pagination]}
                     keyboard={{ enabled: true }}
                     mousewheel={true}

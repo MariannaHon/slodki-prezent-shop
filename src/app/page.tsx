@@ -6,7 +6,7 @@ import Holidays from "./components/Holidays/Holidays";
 import Recommendations from "./components/Recommendations/Recommendations";
 import Clients from "./components/Clients/Clients";
 import ONas from "./components/ONas/ONas";
-import Popular from "./components/Popular/Popular";
+// import Popular from "./components/Popular/Popular";
 import Blog from './components/Blog/Blog'
 import Skontaktuj from "./components/Skontaktuj/Skontaktuj";
 
@@ -70,7 +70,7 @@ export default function Home() {
         <Recommendations />
         <Clients />
         <ONas />
-        <Popular />
+        {/* <Popular /> */}
         <div className={css.about}>
           <Image
             priority
@@ -109,6 +109,14 @@ Nasze prezenty doskonale sprawdzają się jako forma podziękowania, element bud
         </div>
         <div className={css.about}>
           <div className={css['about-content']}>
+            <Image
+              className={css['about-img']}
+              priority
+              src="/images/presents.png"
+              width="588"
+              height="477"
+              alt="Create a present"
+            />
             <h3 className={css['about-content-title']}>Prezenty, które mówią więcej niż słowa</h3>
             <p className='mb-24'>Buduj relacje biznesowe poprzez przemyślane gesty</p>
             <p className={css['about-content-subtitle']}>Punkty wyróżniające:</p>
@@ -135,14 +143,6 @@ Nasze prezenty doskonale sprawdzają się jako forma podziękowania, element bud
             <p className={css['about-content-text']}>Upominek to coś więcej niż przedmiot — to komunikat. W świecie biznesu liczy się pierwsze wrażenie i umiejętność pokazania, że relacje są dla Ciebie ważne. Dlatego w słodki-prezent tworzymy zestawy, które robią różnicę: eleganckie, smaczne i zapadające w pamięć.
 Oferujemy gotowe kompozycje, ale również możliwość przygotowania zestawów na indywidualne zamówienie. Obsługujemy zarówno pojedyncze zamówienia, jak i duże projekty korporacyjne. Zadbaj o swój wizerunek dzięki prezentom, które świadczą o klasie i dbałości o detale.</p>
           </div>
-          <Image
-            className={css['about-img']}
-            priority
-            src="/images/presents.png"
-            width="588"
-            height="477"
-            alt="Create a present"
-          />
         </div>
         <Blog />
         <Skontaktuj />

@@ -26,7 +26,7 @@ const Recommendations = () => {
             <h2 className="section-title">Nasze Rekomendacje</h2>
         <p className={css['recommend-text']}>Wybierz kategorię produktów dopasowaną do Twoich potrzeb</p>
         
-          <ul className={css['recommend-list']}>{products.slice(0, 6).map((product: Product) => (
+          <ul className={css['recommend-list']}>{products.slice(0, 3).map((product: Product) => (
                 <li key={product._id}>
                     <Link href={`/boksy/${product._id}`}>
                         <RecommendCard product={product} />
